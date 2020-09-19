@@ -1,0 +1,190 @@
+I"�<h2 id="angular-cli">Angular CLI</h2>
+<p><a href="https://cli.angular.io/">https://cli.angular.io/</a></p>
+
+<p>Lists available commands and their short descriptions.
+<code class="language-plaintext highlighter-rouge">ng -h</code></p>
+
+<h3 id="installing-the-cli">Installing the CLI</h3>
+
+<p><code class="language-plaintext highlighter-rouge">npm install -g @angular/cli</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ng -v</code> check the version</p>
+
+<p>you can create a new Angular project with the following CLI command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-angular-app</code></p>
+
+<h3 id="serve-an-application">Serve an Application</h3>
+
+<p>With the CLI we can also easily serve our application using a local web-server.</p>
+
+<p>You can then cd into your new project and run your application:</p>
+
+<p>cd my-angular-app</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng serve &lt;project&gt; [options]
+ng s &lt;project&gt; [options]
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ng serve</code> or <code class="language-plaintext highlighter-rouge">ng serve -o</code> (open browser)</p>
+
+<h3 id="generation">Generation</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ng generate --help</code> shorten is  <code class="language-plaintext highlighter-rouge">ng g -h</code></p>
+
+<h4 id="component">Component</h4>
+
+<p><code class="language-plaintext highlighter-rouge">ng generate component my-component</code><br />
+shorten as below<br />
+<code class="language-plaintext highlighter-rouge">ng g c my-component</code>// Creates MyComponent<br />
+By default all generated files go in into <code class="language-plaintext highlighter-rouge">src\app\my-component</code>, a folder called my-component is created for us.</p>
+
+<h4 id="the-other-scaffolds">The other Scaffolds</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>Command</th>
+      <th>Shorten</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>directive</td>
+      <td>ng g directive my-new-directive</td>
+      <td>ng g d my-new-directive</td>
+    </tr>
+    <tr>
+      <td>pipe</td>
+      <td>ng g pipe my-new-pipe</td>
+      <td>ng g p my-new-pipe</td>
+    </tr>
+    <tr>
+      <td>service</td>
+      <td>ng g service my-new-service</td>
+      <td>ng g s my-new-service</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>ng g class my-new-class</td>
+      <td>ng g cl my-new-class</td>
+    </tr>
+    <tr>
+      <td>interface</td>
+      <td>ng g interface my-new-interface</td>
+      <td>ng g i my-new-interface</td>
+    </tr>
+    <tr>
+      <td>enum</td>
+      <td>ng g enum my-new-enum</td>
+      <td>ng g e my-new-enum</td>
+    </tr>
+    <tr>
+      <td>module</td>
+      <td>ng g module my-module</td>
+      <td>ng g m my-module</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>By default all generated files go in into <code class="language-plaintext highlighter-rouge">src\app</code>, no folder is created.</p>
+
+<h4 id="routing"> Routing</h4>
+<p>When creating a new project, simply add the – routing flag and the CLI will generate a routing module for your project in <code class="language-plaintext highlighter-rouge">src/app/app-routing.module.ts</code>:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-project --routing</code></p>
+
+<p>Later on, when you’re developing modules for your application, you can also generate separate routing modules, which is useful when you want to avoid cluttering the root app routing module. Once again, you use the same – routing flag when generating modules.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng generate module my-module --routing</code></p>
+
+<h4 id="styling-preprocessors">Styling preprocessors</h4>
+<p>If you’d like to use a different preprocessor, simply replace scss with less or styl.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-project --style=scss</code></p>
+
+<h4 id="dry-runs">Dry runs</h4>
+<p><code class="language-plaintext highlighter-rouge">ng g c my-test-component --dry-run</code></p>
+
+<p>If you’re a fan of aliases you can also use the alias for this flag, -d.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng g c my-test-component -d</code></p>
+
+<h4 id="skip-tests">Skip tests</h4>
+<p>When generating schematics using the generate command, you can do this using the  <code class="language-plaintext highlighter-rouge">--skipTests true</code> flag:</p>
+
+<dl>
+  <dt>new version cli change to <code class="language-plaintext highlighter-rouge">--skipTests true</code></dt>
+  <dd>
+    <div style="color: red;">  CAN'T USE `--spec=false` ANYMORE </div>
+    <p><code class="language-plaintext highlighter-rouge">ng g c my-testless-component --spec=false</code></p>
+  </dd>
+  <dd>
+    <div style="color: green;">  SHOULD BE </div>
+    <p><code class="language-plaintext highlighter-rouge">ng g c my-testless-component --skipTests true</code></p>
+  </dd>
+</dl>
+
+<p>You can also do this when creating your application with the new command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-testless-application --skip-tests</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-testless-application -S</code></p>
+
+<h4 id="some-more-options">Some more options</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--flat: boolean, default false, generate component files in src/app instead of src/app/site-header
+--inline-template: boolean, default false, use an inline template instead of a separate HTML file
+--inline-style: boolean, default false, use inline styles instead of a separate CSS file
+</code></pre></div></div>
+
+<h4 id="examples">Examples</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng generate module myModule --routing --dry-run
+
+ng g c mycomponent --flat --skipTests true --dry-run
+
+ng g c mycomponent --flat --skipTests true
+
+ng g s shared/open-id-connect --skipTests true --dry-run 
+
+ng g c foldername/mycomponent --flat --skipTests true --inline-style --inline-template --dry-run
+</code></pre></div></div>
+
+<h3 id="documentation">Documentation</h3>
+<p>Simply add your search term using the doc command and the CLI will automatically open a new browser window with your search term specified in the documentation.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng doc animations</code></p>
+
+<h3 id="build">Build</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ng build</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">--prod=true|false	</code>
+Shorthand for “–configuration=production”. When true, sets the build configuration to the production target. By default, the production target is set up in the workspace configuration such that all builds make use of bundling, limited tree-shaking, and also limited dead code elimination.</p>
+
+<p>Running with<code class="language-plaintext highlighter-rouge">--prod</code> changes a few things:</p>
+<ol>
+  <li>The bundles now have random strings appended to them to enable cache
+busting.This ensures that a browser doesn’t try to load up
+previously cached versions of the files and instead load the new
+ones from the server.</li>
+  <li>The file sizes are much smaller. The files have been processed
+  through a minifier and uglifier.</li>
+  <li>There is a much small .gz file, this is a compressed version of the
+    equivalent JavaScript file.Browsers will automatically try to
+    download the .gz version of files if they are present.</li>
+</ol>
+
+<h3 id="test">Test</h3>
+<p><code class="language-plaintext highlighter-rouge">ng test</code></p>
+
+<h3 id="update">Update</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ng update</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ng update @angular/cli @angular/core</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ng update --all</code> //Whether to update all packages in package.json.</p>
+:ET

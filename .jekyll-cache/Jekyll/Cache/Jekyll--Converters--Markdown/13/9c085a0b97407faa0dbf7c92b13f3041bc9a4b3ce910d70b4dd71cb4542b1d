@@ -1,0 +1,3 @@
+I"{<h2 id="1build-the-project">1.Build the project</h2>
+<p>Run <code class="language-plaintext highlighter-rouge">ng build</code> to build the client project. The build artifacts will be stored in the <code class="language-plaintext highlighter-rouge">dist/</code> directory. Use the <code class="language-plaintext highlighter-rouge">--prod</code> flag for a production build.</p>
+:ET

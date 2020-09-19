@@ -1,0 +1,35 @@
+I"Ç<h2 id="steps">Steps</h2>
+<p>You can create a new simple(nodejs + express) app and deploy to azure:</p>
+
+<h3 id="step-1">Step 1</h3>
+<p>install express
+<code class="language-plaintext highlighter-rouge">npm install express-generator -g</code></p>
+
+<h3 id="step-2">Step 2</h3>
+
+<p>create an express sample application:
+<code class="language-plaintext highlighter-rouge">express newappname</code></p>
+
+<h3 id="step-3">Step 3</h3>
+
+<p>cd newappname
+   change directory:
+     <code class="language-plaintext highlighter-rouge">&gt; cd newapp</code></p>
+
+<p>install dependencies:
+     <code class="language-plaintext highlighter-rouge">&gt; npm install</code></p>
+
+<p>run the app locally:
+     <code class="language-plaintext highlighter-rouge">&gt; SET DEBUG=newapp:* &amp; npm start</code></p>
+<h3 id="step-4">Step 4</h3>
+<p>git init &amp;  Azure deployment center - CI/CD 
+   choose local git or github</p>
+
+<h3 id="step-5">Step 5</h3>
+<p>in vs code - azure app service
+   deploy to related app</p>
+
+<h2 id="here-are-reference-links">Here are reference links</h2>
+<p><a href="https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-windows">https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-windows</a>
+  <a href="https://thewebspark.com/2018/04/18/creating-and-deploying-express-web-app-on-azure-in-few-steps/">https://thewebspark.com/2018/04/18/creating-and-deploying-express-web-app-on-azure-in-few-steps/</a></p>
+:ET

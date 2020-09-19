@@ -1,0 +1,30 @@
+I"o<p>New line <code class="language-plaintext highlighter-rouge">"\n"</code>(mostly) or <code class="language-plaintext highlighter-rouge">"\r"</code> or <code class="language-plaintext highlighter-rouge">"\r\n"</code></p>
+
+<p><strong>Scenario</strong>：</p>
+
+<p>1、in a long SQL query<br />
+2、edit the same thing for the multiple lines in the markdown</p>
+
+<p>Eg : in the Nodepad – edit sth at the last of the line.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xxx 
+xxx  
+xxx
+</code></pre></div></div>
+
+<p>Change to ：<code class="language-plaintext highlighter-rouge">xxx,xxx,xxx,</code> or</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xxx,&lt;Br&gt;  
+xxx,&lt;Br&gt; 
+xxx,&lt;Br&gt;
+</code></pre></div></div>
+
+<p>Search <code class="language-plaintext highlighter-rouge">"\r\n"</code></p>
+
+<p>Replace the last of the line ,<code class="language-plaintext highlighter-rouge">"\r ,&lt;Br&gt;"</code></p>
+
+<p>Mutiple edit in nodepad++ <br />
+ <code class="language-plaintext highlighter-rouge">Ctrl + mouse</code> or <code class="language-plaintext highlighter-rouge">shift + alt + mouse(direction key)</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">Shift + ⭾ Tab</code>: (selection of one or more full lines) Remove tabulation or space</p>
+:ET
