@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Angular CLI useful commands | Amy’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="Angular CLI useful commands">
+<meta name="author" content="GitHub Yeminyi">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Angular CLI https://cli.angular.io/">
+<meta property="og:description" content="Angular CLI https://cli.angular.io/">
+<link rel="canonical" href="http://localhost:4000/angular/2019/10/19/angular-cli-useful-things.html">
+<meta property="og:url" content="http://localhost:4000/angular/2019/10/19/angular-cli-useful-things.html">
+<meta property="og:site_name" content="Amy’s blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-10-19T00:00:00+11:00">
+<script type="application/ld+json">
+{"@type":"BlogPosting","datePublished":"2019-10-19T00:00:00+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/angular/2019/10/19/angular-cli-useful-things.html"},"url":"http://localhost:4000/angular/2019/10/19/angular-cli-useful-things.html","author":{"@type":"Person","name":"GitHub Yeminyi"},"description":"Angular CLI https://cli.angular.io/","headline":"Angular CLI useful commands","dateModified":"2019-10-19T00:00:00+11:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Amy's blog">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <img class="site-favicon" title="Amy's blog" src="" onerror="this.style.display='none'">
+  Amy's blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/">HOME</a><a class="page-link" href="/archives.html">ARCHIVES</a><a class="page-link" href="/categories.html">CATEGORIES</a><a class="page-link" href="/tags.html">TAGS</a><a class="page-link" href="/about.html">ABOUT</a>
+
+
+
+
+<span class="page-link">
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://www.countryflags.io/au/flat/64.png" title="">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: '',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Angular CLI useful commands</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="2019-10-19T00:00:00+11:00" itemprop="datePublished"><i class="fa fa-calendar"></i> 19 Oct 2019
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
+  </p>
+<div class="post-tags">
+<a class="post-tag" href="/tags.html#angular">#angular</a><a class="post-tag" href="/tags.html#cli">#cli</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <h2 id="angular-cli">Angular CLI</h2>
+<p><a href="https://cli.angular.io/">https://cli.angular.io/</a></p>
+
+<p>Lists available commands and their short descriptions.
+<code class="language-plaintext highlighter-rouge">ng -h</code></p>
+
+<h3 id="installing-the-cli">Installing the CLI</h3>
+
+<p><code class="language-plaintext highlighter-rouge">npm install -g @angular/cli</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ng -v</code> check the version</p>
+
+<p>you can create a new Angular project with the following CLI command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-angular-app</code></p>
+
+<h3 id="serve-an-application">Serve an Application</h3>
+
+<p>With the CLI we can also easily serve our application using a local web-server.</p>
+
+<p>You can then cd into your new project and run your application:</p>
+
+<p>cd my-angular-app</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng serve &lt;project&gt; [options]
+ng s &lt;project&gt; [options]
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ng serve</code> or <code class="language-plaintext highlighter-rouge">ng serve -o</code> (open browser)</p>
+
+<h3 id="generation">Generation</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ng generate --help</code> shorten is  <code class="language-plaintext highlighter-rouge">ng g -h</code></p>
+
+<h4 id="component">Component</h4>
+
+<p><code class="language-plaintext highlighter-rouge">ng generate component my-component</code><br>
+shorten as below<br>
+<code class="language-plaintext highlighter-rouge">ng g c my-component</code>// Creates MyComponent<br>
+By default all generated files go in into <code class="language-plaintext highlighter-rouge">src\app\my-component</code>, a folder called my-component is created for us.</p>
+
+<h4 id="the-other-scaffolds">The other Scaffolds</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>Command</th>
+      <th>Shorten</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>directive</td>
+      <td>ng g directive my-new-directive</td>
+      <td>ng g d my-new-directive</td>
+    </tr>
+    <tr>
+      <td>pipe</td>
+      <td>ng g pipe my-new-pipe</td>
+      <td>ng g p my-new-pipe</td>
+    </tr>
+    <tr>
+      <td>service</td>
+      <td>ng g service my-new-service</td>
+      <td>ng g s my-new-service</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>ng g class my-new-class</td>
+      <td>ng g cl my-new-class</td>
+    </tr>
+    <tr>
+      <td>interface</td>
+      <td>ng g interface my-new-interface</td>
+      <td>ng g i my-new-interface</td>
+    </tr>
+    <tr>
+      <td>enum</td>
+      <td>ng g enum my-new-enum</td>
+      <td>ng g e my-new-enum</td>
+    </tr>
+    <tr>
+      <td>module</td>
+      <td>ng g module my-module</td>
+      <td>ng g m my-module</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>By default all generated files go in into <code class="language-plaintext highlighter-rouge">src\app</code>, no folder is created.</p>
+
+<h4 id="routing"> Routing</h4>
+<p>When creating a new project, simply add the – routing flag and the CLI will generate a routing module for your project in <code class="language-plaintext highlighter-rouge">src/app/app-routing.module.ts</code>:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-project --routing</code></p>
+
+<p>Later on, when you’re developing modules for your application, you can also generate separate routing modules, which is useful when you want to avoid cluttering the root app routing module. Once again, you use the same – routing flag when generating modules.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng generate module my-module --routing</code></p>
+
+<h4 id="styling-preprocessors">Styling preprocessors</h4>
+<p>If you’d like to use a different preprocessor, simply replace scss with less or styl.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-project --style=scss</code></p>
+
+<h4 id="dry-runs">Dry runs</h4>
+<p><code class="language-plaintext highlighter-rouge">ng g c my-test-component --dry-run</code></p>
+
+<p>If you’re a fan of aliases you can also use the alias for this flag, -d.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng g c my-test-component -d</code></p>
+
+<h4 id="skip-tests">Skip tests</h4>
+<p>When generating schematics using the generate command, you can do this using the  <code class="language-plaintext highlighter-rouge">--skipTests true</code> flag:</p>
+
+<dl>
+  <dt>new version cli change to <code class="language-plaintext highlighter-rouge">--skipTests true</code>
+</dt>
+  <dd>
+    <div style="color: red;">  CAN'T USE `--spec=false` ANYMORE </div>
+    <p><code class="language-plaintext highlighter-rouge">ng g c my-testless-component --spec=false</code></p>
+  </dd>
+  <dd>
+    <div style="color: green;">  SHOULD BE </div>
+    <p><code class="language-plaintext highlighter-rouge">ng g c my-testless-component --skipTests true</code></p>
+  </dd>
+</dl>
+
+<p>You can also do this when creating your application with the new command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-testless-application --skip-tests</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ng new my-testless-application -S</code></p>
+
+<h4 id="some-more-options">Some more options</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--flat: boolean, default false, generate component files in src/app instead of src/app/site-header
+--inline-template: boolean, default false, use an inline template instead of a separate HTML file
+--inline-style: boolean, default false, use inline styles instead of a separate CSS file
+</code></pre></div></div>
+
+<h4 id="examples">Examples</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng generate module myModule --routing --dry-run
+
+ng g c mycomponent --flat --skipTests true --dry-run
+
+ng g c mycomponent --flat --skipTests true
+
+ng g s shared/open-id-connect --skipTests true --dry-run 
+
+ng g c foldername/mycomponent --flat --skipTests true --inline-style --inline-template --dry-run
+</code></pre></div></div>
+
+<h3 id="documentation">Documentation</h3>
+<p>Simply add your search term using the doc command and the CLI will automatically open a new browser window with your search term specified in the documentation.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ng doc animations</code></p>
+
+<h3 id="build">Build</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ng build</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">--prod=true|false	</code>
+Shorthand for “–configuration=production”. When true, sets the build configuration to the production target. By default, the production target is set up in the workspace configuration such that all builds make use of bundling, limited tree-shaking, and also limited dead code elimination.</p>
+
+<p>Running with<code class="language-plaintext highlighter-rouge">--prod</code> changes a few things:</p>
+<ol>
+  <li>The bundles now have random strings appended to them to enable cache
+busting.This ensures that a browser doesn’t try to load up
+previously cached versions of the files and instead load the new
+ones from the server.</li>
+  <li>The file sizes are much smaller. The files have been processed
+  through a minifier and uglifier.</li>
+  <li>There is a much small .gz file, this is a compressed version of the
+    equivalent JavaScript file.Browsers will automatically try to
+    download the .gz version of files if they are present.</li>
+</ol>
+
+<h3 id="test">Test</h3>
+<p><code class="language-plaintext highlighter-rouge">ng test</code></p>
+
+<h3 id="update">Update</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ng update</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ng update @angular/cli @angular/core</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ng update --all</code> //Whether to update all packages in package.json.</p>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/tools/2019/05/19/nodepad-tips.html" title="Nodepad++ tips">Nodepad++ tips</a><a class="next" href="/azure/2020/08/12/create-deploy-express-web-app-on-azure-in-few-steps.html" title="How to create and deploy express web app on azure in few steps">How to create and deploy express...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/markdown/2017/12/15/table-example.html" title="How to create and deploy express web app on azure in few steps">Table example</a></li>
+<li><a class="post-link" href="/markdown/2017/12/18/video-example.html" title="How to create and deploy express web app on azure in few steps">Video example</a></li>
+<li><a class="post-link" href="/tools/2019/05/19/nodepad-tips.html" title="How to create and deploy express web app on azure in few steps">Nodepad++ tips</a></li>
+<li><a class="post-link" href="/azure/2020/08/12/create-deploy-express-web-app-on-azure-in-few-steps.html" title="How to create and deploy express web app on azure in few steps">How to create and deploy express web app on azure in few...</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items=20) {
+      var items = menuContent.firstChild.children;
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 1970-2020 @GitHub Yeminyi</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
