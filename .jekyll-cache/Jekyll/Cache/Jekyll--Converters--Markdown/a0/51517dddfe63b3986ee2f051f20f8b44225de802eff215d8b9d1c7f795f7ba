@@ -1,4 +1,4 @@
-I"¶<h2 id="create-your-blog-locally">Create your blog locally</h2>
+I"¥<h2 id="create-your-blog-locally">Create your blog locally</h2>
 
 <ol>
   <li>
@@ -86,12 +86,12 @@ run
   </li>
   <li>
     <p>You can visit https://yourgithubname.github.io/reponame/.
-Before publish on Github ,make sure you update the file _config.yml ,set the baseurl as your repo name for the blog.</p>
+Before publish to Github ,make sure you updated the file _config.yml ,set the baseurl as your repo name for the blog.</p>
 
     <table>
       <tbody>
         <tr>
-          <td>baseurl: "/myblog" # the subpath of your site, e.g. /blog        {: .cls style="background: orange" }                ||</td>
+          <td>baseurl: "/myblog" # the subpath of your site, e.g. /blog        {: .cls style="background: orange" }</td>
         </tr>
       </tbody>
     </table>

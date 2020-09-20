@@ -80,5 +80,6 @@ run
 - You can visit https://yourgithubname.github.io/reponame/.
   Before publish to Github ,make sure you updated the file _config.yml ,set the baseurl as your repo name for the blog.
 
-    | baseurl: "/myblog" # the subpath of your site, e.g. /blog        {: .cls style="background: orange" }                |||
+   > baseurl: "/myblog" # the subpath of your site, e.g. /blog        {: .cls style="background: orange" }                
+
 - Any update, just commit your changes and push to Github.
