@@ -1,0 +1,18 @@
+I"�<h1 id="deploy-using-ng-deploy">Deploy Using ng deploy</h1>
+
+<p>The simplest way to deploy to Github Pages is to take advantage of the  <code class="language-plaintext highlighter-rouge">ng deploy</code>  Angular CLI command that automates the deployment process. When you run<code class="language-plaintext highlighter-rouge">ng deploy</code>, it executes a builder that performs the deployment for you. The builder that we’ll use is  <code class="language-plaintext highlighter-rouge">[angular-cli-ghpages](https://npmjs.org/package/angular-cli-ghpages)</code>.  <code class="language-plaintext highlighter-rouge">ng deploy</code>  builds your project and deploys the resultant output to a  <code class="language-plaintext highlighter-rouge">gh-pages</code>  branch on your remote Github repository.</p>
+
+<ol>
+  <li>To begin, add the  <code class="language-plaintext highlighter-rouge">angular-cli-ghpages</code>  builder.</li>
+</ol>
+
+<p>ng add angular-cli-ghpages</p>
+
+<ol>
+  <li>Deploy your project. If you’re deploying the project to a Github project page you’ll need to set the  <code class="language-plaintext highlighter-rouge">baseHref</code>  property as the repository name. The  <code class="language-plaintext highlighter-rouge">baseHref</code>  will be used for all relative URLs on your site. You could specify the  <code class="language-plaintext highlighter-rouge">baseHref</code>  as part of the project architect deploy options in the  <strong><em>angular.json</em></strong>  file. Or just pass it as the<code class="language-plaintext highlighter-rouge">--base-href</code>  flag to the  <code class="language-plaintext highlighter-rouge">ng deploy</code>  command. If you’re deploying the project to a Github user page, you do not need to set this option.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng deploy --base-href=/&lt;repository-name&gt;/
+</code></pre></div>    </div>
+    <p>GitHub will automatically enable Pages when you push a  <code class="language-plaintext highlighter-rouge">gh-pages</code>  branch. There is no need to enable Pages from the repository settings.</p>
+  </li>
+</ol>
+:ET

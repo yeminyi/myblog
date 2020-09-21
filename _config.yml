@@ -8,8 +8,7 @@ title: Amy's blog
 email: your-email@domain.com
 author: GitHub Yeminyi
 copyright: Copyright © 1970-2020
-description: >- # this means to ignore newlines until "baseurl:"
-  I am Amy Ye. Web Developer.
+description: I am Amy Ye,Full Stack Web Developer.
 
 baseurl: "/myblog" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
