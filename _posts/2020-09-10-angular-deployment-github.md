@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Angular Apps Deployment to GitHub Pages 
-categories: Angular
+categories: angular
 tags: [github,angular,deploy]
 ---
 
