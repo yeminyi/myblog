@@ -10,7 +10,7 @@ author: https://github.com/yeminyi
 copyright: Copyright © 1970-2020
 description: I am Amy Ye,Full Stack Web Developer.
 
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/myblog" # the subpath of your site, e.g. /blog
 url: "https://yeminyi.github.io/myblog" # the base hostname & protocol for your site, e.g. http://example.com
 favicon: "" # the favicon for your site
 
