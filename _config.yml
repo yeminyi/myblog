@@ -11,7 +11,7 @@ copyright: Copyright © 1970-2020
 description: I am Amy Ye,Full Stack Web Developer.
 
 baseurl: "/myblog" # the subpath of your site, e.g. /blog
-url: "https://yeminyi.github.io/myblog" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://yeminyi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
@@ -92,7 +92,7 @@ defaults:
 #     banner: "Your image url"
 
 # Pagination setting
-paginate: 5
+# paginate: 5
 
 # Disqus comments
 # disqus:
