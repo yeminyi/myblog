@@ -1,4 +1,4 @@
-I"¥<p>It‚Äôs really convenient to build and deploy the Jekyll site to Github Pages.(h3)</p>
+I"≠<p>It‚Äôs really convenient to build and deploy the Jekyll site to Github Pages.</p>
 
 <h2 id="-usage">‚≠ê Usage</h2>
 
@@ -71,6 +71,6 @@ git push origin gh-pages
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>! [remote rejected] master -&gt; master (refusing to allow an OAuth App to create or update workflow `.github/workflows/build.yml` without `workflow` scope)error: failed to push 
 </code></pre></div>    </div>
   </li>
-  <li><a href="https://github.com/marketplace/actions/jekyll-deploy-action">Github Link Here</a> <a href="https://jekyllrb.com/docs/continuous-integration/github-actions/">Jekyll Link</a></li>
+  <li><a href="https://github.com/marketplace/actions/jekyll-deploy-action">Github Link</a> / <a href="https://jekyllrb.com/docs/continuous-integration/github-actions/">Jekyll Link</a></li>
 </ul>
 :ET

@@ -83,3 +83,5 @@ run
    > baseurl: "/myblog" # the subpath of your site, e.g. /blog   
 
 - Any update, just commit your changes and push to Github.
+  
+👉 [Automated Deployment](/myblog/github/2020/09/21/github-jekyll-blog-deploy-action.html)

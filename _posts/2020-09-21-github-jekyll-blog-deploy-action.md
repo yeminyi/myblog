@@ -2,7 +2,7 @@
 layout: post
 title: Jekyll Deploy Action
 categories: github
-tags: [jekyll,github,blog,CI/CD]
+tags: [jekyll,github,blog,CICD]
 ---
 
  It's really convenient to build and deploy the Jekyll site to Github Pages.
@@ -78,4 +78,4 @@ git push origin gh-pages
   ```
   ! [remote rejected] master -> master (refusing to allow an OAuth App to create or update workflow `.github/workflows/build.yml` without `workflow` scope)error: failed to push 
   ```
-- [Github Link Here](https://github.com/marketplace/actions/jekyll-deploy-action) [Jekyll Link](https://jekyllrb.com/docs/continuous-integration/github-actions/)
+- [Github Link](https://github.com/marketplace/actions/jekyll-deploy-action) / [Jekyll Link](https://jekyllrb.com/docs/continuous-integration/github-actions/)
