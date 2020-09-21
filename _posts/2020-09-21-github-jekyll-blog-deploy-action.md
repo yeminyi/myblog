@@ -2,8 +2,10 @@
 layout: post
 title: Jekyll Deploy Action
 categories: github
-tags: [jekyll,github,blog]
+tags: [jekyll,github,blog,CI/CD]
 ---
+
+ It's really convenient to build and deploy the Jekyll site to Github Pages.
 
 ## ⭐ Usage
 
@@ -72,8 +74,8 @@ git push origin gh-pages
 ## 💡 Tips
 
 - The gh-pages branch is only for the site static files and the master branch is for source code.
-- It maybe have a error when create work flow file to push. You can create the file on github directly : `create new file` with the path `github/workflows/build-jekyll.yml` under the repo in the master branch.Or please refer [the link](https://github.com/gitextensions/gitextensions/issues/4916#issuecomment-557509451) by Mike-E-wins
+- It maybe have a error when create workflow file to push. You can create the file on github directly : `create new file` with the path `github/workflows/build-jekyll.yml` under the repo in the master branch.Or please refer [the link](https://github.com/gitextensions/gitextensions/issues/4916#issuecomment-557509451) by Mike-E-wins
   ```
   ! [remote rejected] master -> master (refusing to allow an OAuth App to create or update workflow `.github/workflows/build.yml` without `workflow` scope)error: failed to push 
   ```
-- [Github Link Here](https://github.com/marketplace/actions/jekyll-deploy-action)
+- [Github Link Here](https://github.com/marketplace/actions/jekyll-deploy-action) [Jekyll Link](https://jekyllrb.com/docs/continuous-integration/github-actions/)

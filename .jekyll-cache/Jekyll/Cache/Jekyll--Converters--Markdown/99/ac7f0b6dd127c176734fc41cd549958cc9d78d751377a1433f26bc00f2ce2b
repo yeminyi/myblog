@@ -1,4 +1,6 @@
-I"e<h2 id="usage">Usage</h2>
+I"�<p>It’s really convenient to build and deploy the Jekyll site to Github Pages.(h3)</p>
+
+<h2 id="-usage">⭐ Usage</h2>
 
 <p>At First, you should add a github workflow file (e.g. .github/workflows/build-jekyll.yml) in your repository’s master branch as below:</p>
 
@@ -65,11 +67,10 @@ git push origin gh-pages
 
 <ul>
   <li>The gh-pages branch is only for the site static files and the master branch is for source code.</li>
-  <li>It maybe have a error when create work flow file to push
+  <li>It maybe have a error when create workflow file to push. You can create the file on github directly : <code class="language-plaintext highlighter-rouge">create new file</code> with the path <code class="language-plaintext highlighter-rouge">github/workflows/build-jekyll.yml</code> under the repo in the master branch.Or please refer <a href="https://github.com/gitextensions/gitextensions/issues/4916#issuecomment-557509451">the link</a> by Mike-E-wins
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>! [remote rejected] master -&gt; master (refusing to allow an OAuth App to create or update workflow `.github/workflows/build.yml` without `workflow` scope)error: failed to push 
 </code></pre></div>    </div>
   </li>
+  <li><a href="https://github.com/marketplace/actions/jekyll-deploy-action">Github Link Here</a> <a href="https://jekyllrb.com/docs/continuous-integration/github-actions/">Jekyll Link</a></li>
 </ul>
-
-<p><a href="https://github.com/marketplace/actions/jekyll-deploy-action">Github Link</a></p>
 :ET
