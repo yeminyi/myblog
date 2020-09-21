@@ -1,0 +1,33 @@
+I"f<h2 id="usage">Usage</h2>
+
+<p><a href="https://github.com/marketplace/actions/jekyll-deploy-action">https://github.com/marketplace/actions/jekyll-deploy-action</a></p>
+
+<p>At First, you should add a github workflow file (e.g. .github/workflows/build-jekyll.yml) in your repository’s master branch as below:</p>
+
+<p>To schedule a workflow, you can use the POSIX cron syntax in your workflow file. The shortest interval you can run scheduled workflows is once every 5 minutes. For example, this workflow is triggered every hour.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>on:
+  schedule:
+    - cron:  '0 * * * *'
+</code></pre></div></div>
+<p>After this, we should provide permissions for this action to push to the gh-pages branch:</p>
+
+<ul>
+  <li>Create a  <a href="https://github.com/settings/tokens">Personal Token</a>  with repos permissions and copy the value.</li>
+  <li>Go to your repository’s Settings and then switch to the Secrets tab.</li>
+  <li>Create a token named  <code class="language-plaintext highlighter-rouge">GH_TOKEN</code>  (important) using the value copied.</li>
+</ul>
+
+<p>Additionally, if you don’t have the gh-pages branch, you can create it as below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout --orphan gh-pages
+git rm -rf .
+git commit --allow-empty -m "initial commit"
+git push origin gh-pages
+
+</code></pre></div></div>
+
+<h2 id="-tip">💡 Tip</h2>
+
+<p>💡 Tip: The gh-pages branch is only for the site static files and the master branch is for source code.</p>
+:ET
