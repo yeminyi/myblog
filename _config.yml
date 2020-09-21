@@ -6,12 +6,12 @@
 
 title: Amy's blog
 email: your-email@domain.com
-author: GitHub Yeminyi
+author: https://github.com/yeminyi
 copyright: Copyright © 1970-2020
 description: I am Amy Ye,Full Stack Web Developer.
 
-baseurl: "/myblog" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yeminyi.github.io/myblog" # the base hostname & protocol for your site, e.g. http://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
@@ -92,7 +92,7 @@ defaults:
 #     banner: "Your image url"
 
 # Pagination setting
-# paginate: 5
+paginate: 5
 
 # Disqus comments
 # disqus:
