@@ -8,6 +8,8 @@ tags: [github,angular,deploy]
 
 ## Deploy Using ng deploy
 
+Angular Cli Version should be 8+.
+
 The simplest way to deploy to Github Pages is to take advantage of the  `ng deploy`  Angular CLI command that automates the deployment process. When you run`ng deploy`, it executes a builder that performs the deployment for you. The builder that we’ll use is  [angular-cli-ghpages](https://npmjs.org/package/angular-cli-ghpages).  `ng deploy`  builds your project and deploys the resultant output to a  `gh-pages`  branch on your remote Github repository.
 
 1.  To begin, add the  `angular-cli-ghpages`  builder.
@@ -20,7 +22,9 @@ The simplest way to deploy to Github Pages is to take advantage of the  `ng depl
     ```
 GitHub will automatically enable Pages when you push a  `gh-pages`  branch. There is no need to enable Pages from the repository settings.
 
-## Angular 7
+## The Other Method
+Angular Cli Version is Angular 7
+
 Set gh-pages to be the brach to build from in repo settings:
   ```
   git checkout -b gh-pages
