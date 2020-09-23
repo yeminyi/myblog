@@ -57,7 +57,7 @@ git push origin --delete test
 #  - [deleted]         test
 
 ```
-## Github first commit
+## Github First Commit
 ```
 git init
 git add .
@@ -66,3 +66,31 @@ git branch -M master
 git remote add origin https://github.com/yourusername/repo.git
 git push -u origin master
 ```
+## Git Hard Reset
+1. find the commit id using `git log`
+   
+       eg :id is fae696654853ae76cfa7f38a461c438cf75ba965
+
+2. reset the old one
+    
+    ```
+    git reset --hard fae696654853ae76cfa7f38a461c438cf75ba965
+        
+    ```
+3. push it to remote server
+   
+    ```
+    git push -f -u origin master  
+    ```
+_____________________________________________________________
+    ```
+
+    git reset --soft HEAD^      (going back to soft, not back to cancel the `git add`,the code is still changed)
+
+    git reset --hard HEAD       (going back to HEAD)
+
+    git reset --hard HEAD^      (going back to the commit before HEAD)
+
+    git reset --hard HEAD~2     (going back two commits before HEAD)
+
+    ```

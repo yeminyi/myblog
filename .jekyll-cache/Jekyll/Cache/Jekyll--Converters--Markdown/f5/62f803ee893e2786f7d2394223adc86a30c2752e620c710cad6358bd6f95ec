@@ -1,0 +1,29 @@
+I"�
+<h1 id="deploy-using-ng-deploy">Deploy Using ng deploy</h1>
+
+<p>The simplest way to deploy to Github Pages is to take advantage of the  <code class="language-plaintext highlighter-rouge">ng deploy</code>  Angular CLI command that automates the deployment process. When you run<code class="language-plaintext highlighter-rouge">ng deploy</code>, it executes a builder that performs the deployment for you. The builder that we’ll use is  <a href="https://npmjs.org/package/angular-cli-ghpages">angular-cli-ghpages</a>.  <code class="language-plaintext highlighter-rouge">ng deploy</code>  builds your project and deploys the resultant output to a  <code class="language-plaintext highlighter-rouge">gh-pages</code>  branch on your remote Github repository.</p>
+
+<ol>
+  <li>To begin, add the  <code class="language-plaintext highlighter-rouge">angular-cli-ghpages</code>  builder.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add angular-cli-ghpages
+</code></pre></div>    </div>
+  </li>
+  <li>Deploy your project. If you’re deploying the project to a Github project page you’ll need to set the  <code class="language-plaintext highlighter-rouge">baseHref</code>  property as the repository name. The  <code class="language-plaintext highlighter-rouge">baseHref</code>  will be used for all relative URLs on your site. You could specify the  <code class="language-plaintext highlighter-rouge">baseHref</code>  as part of the project architect deploy options in the  <strong><em>angular.json</em></strong>  file. Or just pass it as the<code class="language-plaintext highlighter-rouge">--base-href</code>  flag to the  <code class="language-plaintext highlighter-rouge">ng deploy</code>  command. If you’re deploying the project to a Github user page, you do not need to set this option.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ng deploy --base-href=/&lt;repository-name&gt;/
+</code></pre></div>    </div>
+    <p>GitHub will automatically enable Pages when you push a  <code class="language-plaintext highlighter-rouge">gh-pages</code>  branch. There is no need to enable Pages from the repository settings.</p>
+  </li>
+</ol>
+
+<h2 id="angular-7">Angular 7</h2>
+<p>Set gh-pages to be the brach to build from in repo settings:
+  git checkout -b gh-pages
+  git push origin gh-pages
+  npm install -g angular-cli-ghpages
+  ng build –prod –base-href https://[username].github.io/[repo]/
+  ngh –dir=dist/[project-name]
+It is only necessary to set the the–base-href flag once, next time you build the project you can simply run:
+🌹  ng build –prod
+In order to compile images correctly use path as following:
+‘./assets/images/image.png’</p>
+:ET

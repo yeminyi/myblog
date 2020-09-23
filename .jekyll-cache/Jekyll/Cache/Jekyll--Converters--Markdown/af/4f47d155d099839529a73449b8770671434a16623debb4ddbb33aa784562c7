@@ -1,0 +1,79 @@
+I"H
+<h2 id="git-basic">GIT Basic</h2>
+
+<p>git log  <br />
+Display the entire commit history using the default format.For customization see additional options<br />
+git log -[limit] <br />
+Limit number of commits by [limit]. <br />
+E.g. ”git log -5” will limit to 5 commits. <br />
+git log –follow [file]<br />
+Lists version history for a file, including renames</p>
+
+<p>git diff    <br />
+Show unstaged changes between your index and working directory.<br />
+git diff HEAD <br />
+Show difference between working directory and last commit.<br />
+git diff –cached <br />
+Show difference between staged changes and last commit<br />
+git diff [first-branch]…[second-branch]<br />
+Shows content differences between two branches</p>
+
+<p>git show [commit] <br />
+Outputs metadata and content changes of the specified commit</p>
+
+<h2 id="deleting-branches">Deleting Branches</h2>
+
+<p>Deleting local branches</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch -a
+# *master
+#  test
+#  remote/origin/master
+#  remote/origin/test
+
+git branch -d test
+# Deleted branch test .
+
+</code></pre></div></div>
+
+<p>Deleting remote branches</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch -a
+# *master
+#  test
+#  remote/origin/master
+#  remote/origin/test
+
+git push origin --delete test
+# To &lt;URL of your repository&gt;.git
+#  - [deleted]         test
+
+</code></pre></div></div>
+<h2 id="github-first-commit">Github first commit</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+git add .
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/yourusername/repo.git
+git push -u origin master
+</code></pre></div></div>
+<h2 id="git-hard-reset">Git hard reset</h2>
+<ol>
+  <li>
+    <p>find the commit id using <code class="language-plaintext highlighter-rouge">git log</code></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eg :id is fae696654853ae76cfa7f38a461c438cf75ba965
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>reset the old one
+```
+  git reset –hard fae696654853ae76cfa7f38a461c438cf75ba965</p>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. push it to remote server
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push -f -u origin master    ```
+</code></pre></div></div>
+:ET

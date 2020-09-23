@@ -1,0 +1,268 @@
+I"�$<p>This note demonstrates some of what <a href="http://daringfireball.net/projects/markdown/">Markdown</a> is capable of doing.</p>
+
+<h2 id="an-exhibit-of-markdown">An exhibit of Markdown</h2>
+
+<p><em>Note: Feel free to play with this page. Unlike regular notes, this doesn’t automatically save itself.</em></p>
+
+<h2 id="basic-formatting">Basic formatting</h2>
+
+<p>Paragraphs can be written like so. A paragraph is the basic block of Markdown. A paragraph is what text will turn into when there is no reason it should become anything else.</p>
+
+<p>Paragraphs must be separated by a blank line. Basic formatting of <em>italics</em> and <strong>bold</strong> is supported. This <em>can be <strong>nested</strong> like</em> so.</p>
+
+<h2 id="lists">Lists</h2>
+
+<h3 id="ordered-list">Ordered list</h3>
+
+<ol>
+  <li>Item 1</li>
+  <li>A second item</li>
+  <li>Number 3</li>
+  <li>Ⅳ</li>
+</ol>
+
+<p><em>Note: the fourth item uses the Unicode character for <a href="http://www.fileformat.info/info/unicode/char/2163/index.htm">Roman numeral four</a>.</em></p>
+
+<h3 id="unordered-list">Unordered list</h3>
+
+<ul>
+  <li>An item</li>
+  <li>Another item</li>
+  <li>Yet another item</li>
+  <li>And there’s more…</li>
+</ul>
+
+<h2 id="paragraph-modifiers">Paragraph modifiers</h2>
+
+<h3 id="code-block">Code block</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Code blocks are very useful for developers and other people who look at code or other things that are written in plain text. As you can see, it uses a fixed-width font.
+</code></pre></div></div>
+
+<p>You can also make <code class="language-plaintext highlighter-rouge">inline code</code> to add code into other things.</p>
+
+<h3 id="quote">Quote</h3>
+
+<blockquote>
+  <p>Here is a quote. What this is should be self explanatory. Quotes are automatically indented when they are used.</p>
+</blockquote>
+
+<h2 id="headings">Headings</h2>
+
+<p>There are six levels of headings. They correspond with the six levels of HTML headings. You’ve probably noticed them already in the page. Each level down uses one more hash character.</p>
+
+<h3 id="headings-can-also-contain-formatting">Headings <em>can</em> also contain <strong>formatting</strong></h3>
+
+<h3 id="they-can-even-contain-inline-code">They can even contain <code class="language-plaintext highlighter-rouge">inline code</code></h3>
+
+<p>Of course, demonstrating what headings look like messes up the structure of the page.</p>
+
+<p>I don’t recommend using more than three or four levels of headings here, because, when you’re smallest heading isn’t too small, and you’re largest heading isn’t too big, and you want each size up to look noticeably larger and more important, there there are only so many sizes that you can use.</p>
+
+<h2 id="urls">URLs</h2>
+
+<p>URLs can be made in a handful of ways:</p>
+
+<ul>
+  <li>A named link to <a href="http://www.markitdown.net/">MarkItDown</a>. The easiest way to do these is to select what you want to make a link and hit <code class="language-plaintext highlighter-rouge">Ctrl+L</code>.</li>
+  <li>Another named link to <a href="http://www.markitdown.net/">MarkItDown</a></li>
+  <li>Sometimes you just want a URL like <a href="http://www.markitdown.net/">http://www.markitdown.net/</a>.</li>
+</ul>
+
+<h2 id="horizontal-rule">Horizontal rule</h2>
+
+<p>A horizontal rule is a line that goes across the middle of the page.</p>
+
+<hr />
+
+<p>It’s sometimes handy for breaking things up.</p>
+
+<h2 id="images">Images</h2>
+
+<p>Markdown can also contain images. I’ll need to add something here sometime.</p>
+
+<h2 id="finally">Finally</h2>
+
+<p>There’s actually a lot more to Markdown than this. See the official <a href="http://daringfireball.net/projects/markdown/basics">introduction</a> and <a href="http://daringfireball.net/projects/markdown/syntax">syntax</a> for more information. However, be aware that this is not using the official implementation, and this might work subtly differently in some of the little things.</p>
+
+<p>Paragraphs are separated by a blank line.</p>
+
+<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code class="language-plaintext highlighter-rouge">monospace</code>. Itemized lists
+look like:</p>
+
+<ul>
+  <li>this one</li>
+  <li>that one</li>
+  <li>the other one</li>
+</ul>
+
+<p>Note that — not considering the asterisk — the actual text
+content starts at 4-columns in.</p>
+
+<blockquote>
+  <p>Block quotes are
+written like so.</p>
+
+  <p>They can span multiple paragraphs,
+if you like.</p>
+</blockquote>
+
+<p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., “it’s all
+in chapters 12–14”). Three dots … will be converted to an ellipsis.
+Unicode is supported. ☺</p>
+
+<h2 id="an-h2-header">An h2 header</h2>
+
+<p>Here’s a numbered list:</p>
+
+<ol>
+  <li>first item</li>
+  <li>second item</li>
+  <li>third item</li>
+</ol>
+
+<p>Note again how the actual text starts at 4 columns in (4 characters
+from the left side). Here’s a code sample:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Let me re-iterate ...
+for i in 1 .. 10 { do-something(i) }
+</code></pre></div></div>
+
+<p>As you probably guessed, indented 4 spaces. By the way, instead of
+indenting the block, you can use delimited blocks, if you like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>define foobar() {
+    print "Welcome to flavor country!";
+}
+</code></pre></div></div>
+
+<p>(which makes copying &amp; pasting easier). You can optionally mark the
+delimited block for Pandoc to syntax highlight it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="c1"># Quick, count to ten!
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># (but not *too* quick)
+</span>    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="an-h3-header">An h3 header</h3>
+
+<p>Now a nested list:</p>
+
+<ol>
+  <li>
+    <p>First, get these ingredients:</p>
+
+    <ul>
+      <li>carrots</li>
+      <li>celery</li>
+      <li>lentils</li>
+    </ul>
+  </li>
+  <li>
+    <p>Boil some water.</p>
+  </li>
+  <li>
+    <p>Dump everything in the pot and follow
+this algorithm:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find wooden spoon
+uncover pot
+stir
+cover pot
+balance wooden spoon precariously on pot handle
+wait 10 minutes
+goto first step (or shut off burner when done)
+</code></pre></div>    </div>
+
+    <p>Do not bump wooden spoon or it will fall.</p>
+  </li>
+</ol>
+
+<p>Notice again how text always lines up on 4-space indents (including
+that last line which continues item 3 above).</p>
+
+<p>Here’s a link to <a href="http://foo.bar">a website</a>, to a <a href="local-doc.html">local
+doc</a>, and to a <a href="#an-h2-header">section heading in the current
+doc</a>. Here’s a footnote <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+
+<p>Tables can look like this:</p>
+
+<p>Name           Size  Material      Color
+————- —–  ————  ————
+All Business      9  leather       brown
+Roundabout       10  hemp canvas   natural
+Cinderella       11  glass         transparent</p>
+
+<p>Table: Shoes sizes, materials, and colors.</p>
+
+<p>(The above is the caption for the table.) Pandoc also supports
+multi-line tables:</p>
+
+<hr />
+<p>Keyword   Text
+——–  ———————–
+red       Sunsets, apples, and
+          other red or reddish
+          things.</p>
+
+<p>green     Leaves, grass, frogs
+          and other things it’s
+          not easy being.
+——–  ———————–</p>
+
+<p>A horizontal rule follows.</p>
+
+<hr />
+
+<p>Here’s a definition list:</p>
+
+<dl>
+  <dt>apples</dt>
+  <dd>Good for making applesauce.</dd>
+  <dt>oranges</dt>
+  <dd>Citrus!</dd>
+  <dt>tomatoes</dt>
+  <dd>There’s no “e” in tomatoe.</dd>
+</dl>
+
+<p>Again, text is indented 4 spaces. (Put a blank line between each
+term and  its definition to spread things out more.)</p>
+
+<p>Here’s a “line block” (note how whitespace is honored):</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Line one</td>
+    </tr>
+    <tr>
+      <td>Line too</td>
+    </tr>
+    <tr>
+      <td>Line tree</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>and images can be specified like so:</p>
+
+<p><img src="http://www.unexpected-vortices.com/sw/rippledoc/example-image.jpg" alt="example image" title="An exemplary image" /></p>
+
+<p>Inline math equation: $\omega = d\phi / dt$. Display
+math should get its own line like so:</p>
+
+\[I = \int \rho R^{2} dV\]
+
+<p>And note that you can backslash-escape any punctuation characters
+which you wish to be displayed literally, ex.: `foo`, *bar*, etc.</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Some footnote text. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

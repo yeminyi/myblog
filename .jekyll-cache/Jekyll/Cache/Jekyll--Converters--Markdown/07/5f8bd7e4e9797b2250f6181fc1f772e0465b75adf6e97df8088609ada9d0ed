@@ -1,0 +1,18 @@
+I"F<h2 id="git-basic">GIT Basic</h2>
+<p>You could use <a href="">rimraf</a>:</p>
+
+<p>npm install -g rimraf
+rimraf C:\code\yeoman-foo(folder path)
+    ```</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset --soft HEAD^      (going back to soft, not back to cancel the `git add`,the code is still changed)
+
+git reset --hard HEAD       (going back to HEAD)
+
+git reset --hard HEAD^      (going back to the commit before HEAD)
+
+git reset --hard HEAD~2     (going back two commits before HEAD)
+
+```
+</code></pre></div></div>
+:ET
