@@ -9,7 +9,10 @@ tags: [azure,sqlite,angular,deploy]
   Run `ng build` to build the client project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## 2.Create the apps on Azure.
-  Deploy the dist folder to the web app. Make sure put the web.config file under the`wwwroot/` as well. Angular on azure need the web.config for routing or read json file(local run ng serve is different with using IIS,need to add web.config ).By the way, WebApp windows environment need add the node.js version app settings.
+  Deploy the dist folder to the web app. **Make sure put the web.config file** under the`wwwroot/` as well. Angular on azure need the web.config for routing or read json file(local run ng serve is different with using IIS,need to add web.config ).By the way, WebApp windows environment need add the node.js version app settings.
+  
+  If no **web.config** in the foler ,it will show the error.
+  >Error : The resource you are looking for has been removed, had its name changed, or is temporarily unavailable
 
 ## 3.Deploy to Azure
 
