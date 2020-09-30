@@ -2,7 +2,7 @@
 layout: post
 title: How to download the latest build artifacts from Azure DevOps?
 categories: azure
-tags: [azure,pipelines]
+tags: [azure,pipelines,DevOps]
 ---
 
 
