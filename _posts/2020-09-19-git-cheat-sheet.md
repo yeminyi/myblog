@@ -94,3 +94,17 @@ _____________________________________________________________
     git reset --hard HEAD~2     (going back two commits before HEAD)
 
     ```
+
+## Changing a remote's URL
+
+    List your existing remotes in order to get the name of the remote you want to change.
+    ```
+    git remote -v
+    > origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+    > origin  git@github.com:USERNAME/REPOSITORY.git (push)
+    ```
+
+    Change your remote's URL from SSH to HTTPS with the git remote set-url command.
+    ```
+    git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+    ```
