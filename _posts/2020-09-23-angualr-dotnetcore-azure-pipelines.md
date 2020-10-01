@@ -9,12 +9,16 @@ tags: [azure,pipelines,DevOps]
 
 How to create and deply the Angular + .Net Core WebAPI as an Azure App Service using an Azure DevOps CI pipeline?
 
+Prerequisites
+- Azure Account
+- Source code pushed to your GitHub repository
+- Ready-to-deploy ASP.NET Core application configured similarly to this case
+  
 I found many examples for the same folder for the project.In this case, I separated the front-end and  the back-end in different folder however in the same repo of the github and the same solution.Let's start it.
-
 
 ## Create the Project
 
-I am using the angular template for the illustration. 
+I am using the angular template for the illustration. If you have your own project,you can skip this part.
 
 you can create your DotnetCore 3.1 Project ,as below
 ![enter image description here]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/dotnetcore.jpg)
@@ -74,10 +78,63 @@ Add this as below. It will copy the front-end files to back-end folder and inclu
 
   ```
 
+After this, please push your project to your github account.
+
 ## Create Web App
 
 Create the Webapp in Azure.Be care to choose free plan if you wouldn't like to pay anything.
-And make sure the .net core version is 3.1
-![enter image description here]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/createWebapp.jpg)
+And make sure the .net core version is 3.1 ,it should be the same version with your project.
+![createWebapp]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/createWebapp.jpg)
+
+Choose the new web app to the deployment center,set your github repo for the project.
+
+![DeploymentCenter]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/DeploymentCenter.jpg)
+
+Choose Build Provider -> Azure Pipelines (Preview)
+
+![DeploymentCenter]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/build provider.jpg)
+-> set your github configure 
+![DeploymentCenter]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/configure.jpg)
+
+-> finish all the settings 
+![DeploymentCenter]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/allsetting.jpg)
 
 
+## Edit Your Pipeline
+
+->the deployment center
+
+![editfordeploymentcenter]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/editfordeploymentcenter.jpg)
+
+you will go to the azure devops , it need to create your account and project at the first time. Then you will see as below
+
+
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/azureDevops.jpg)
+
+## Edit Your Job
+
+It will generate the .net core task as usual, you can add a new task of the npm install for the angular build.
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/installtask.jpg)
+
+Set the working folder to where your angular front-end is located
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/npminstall.jpg)
+
+Clone the task 
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/CloneTask.jpg)
+
+and update the command `run build`
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/runbuild.jpg)
+
+Create the Azure App Service Deploy Task
+This task will take your compiled .NET Core application and publish it to your Azure Web App service.
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/deploytool.jpg)
+
+Set your package location to the output of the .NET Core: Publish task:
+```$(build.artifactstagingdirectory)/**/*.zip```
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/packagesave.jpg)
+
+Save your job
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/save.jpg)
+
+Run your job or commit & push something, you will see your task run as below
+![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/PipelineResult.jpg)
