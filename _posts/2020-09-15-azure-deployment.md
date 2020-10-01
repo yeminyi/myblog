@@ -14,6 +14,18 @@ tags: [azure,sqlite,angular,deploy]
   If no **web.config** in the foler ,it will show the error.
   >Error : The resource you are looking for has been removed, had its name changed, or is temporarily unavailable
 
+  Make a change to angular.json to bundle the web.config file in the build, you will see in the publish output file.
+
+	
+	...
+	"assets": [
+		/src/favicon.ico",
+		/src/assets",
+		/src/web.config"
+	],
+	...
+	
+
 ## 3.Deploy to Azure
 
 ### 1) Create a Release Package
