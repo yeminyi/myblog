@@ -130,7 +130,11 @@ This task will take your compiled .NET Core application and publish it to your A
 ![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/deploytool.jpg)
 
 Set your package location to the output of the .NET Core: Publish task:
-```$(build.artifactstagingdirectory)/**/*.zip```
+
+```
+$(build.artifactstagingdirectory)/**/*.zip
+```
+
 ![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/packagesave.jpg)
 
 Save your job
@@ -139,7 +143,9 @@ Save your job
 Run your job or commit & push something, you will see your task run as below
 ![azureDevops]({{site.baseurl}}/assets/img/2020-09-23-angualr-dotnetcore-azure-pipelines/PipelineResult.jpg)
 
-``` yaml
+
+```  yaml
+
 pool:
   name: Azure Pipelines
   demands: npm
@@ -205,3 +211,15 @@ steps:
 
 
 ```
+## An Problem 
+the DotNetCoreCLI@2 task not publish (zip) my project?
+Aways ignore it ,if `publishWebProjects` to `True`.
+Just update it to `False`
+Pls refer [this](https://stackoverflow.com/questions/62201281/azure-devops-why-does-the-dotnetcorecli2-task-not-publish-zip-my-azure-funct
+)
+
+## Npm Task
+
+Npm verson 1.* have cuscom command, 0.* can't use it.
+
+Please refer [this](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/package/npm?view=azure-devops)
