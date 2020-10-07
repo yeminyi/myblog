@@ -212,7 +212,7 @@ steps:
 
 ```
 ## An Problem 
-the DotNetCoreCLI@2 task not publish (zip) my project?
+the DotNetCoreCLI@2 task not publish (zip) the project?
 Aways ignore it ,if `publishWebProjects` to `True`.
 Just update it to `False`
 Pls refer [this](https://stackoverflow.com/questions/62201281/azure-devops-why-does-the-dotnetcorecli2-task-not-publish-zip-my-azure-funct
