@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Prepare Your identityserver For Chrome's SameSite Cookie
-categories: IdentityServer
-tags: [identityserver,cookie]
+categories: IdentityServer4
+tags: [identityserver4,cookie]
 ---
 
 ## The class to add to your project

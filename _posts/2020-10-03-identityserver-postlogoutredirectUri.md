@@ -1,9 +1,13 @@
 ---
 layout: post
 title: PostLogoutRedirectUri always null in identity Server 4 with Angular OIDC client
-categories: IdentityServer
-tags: [identityserver]
+categories: IdentityServer4
+tags: [identityserver4]
 ---
+
+## Problem
+
+The LogoutId always was NULL in identity Server 4 when the Angular OIDC client redirect to logout.
 
 ## Remove the `post_logout_redirect_uri` setting 
 
