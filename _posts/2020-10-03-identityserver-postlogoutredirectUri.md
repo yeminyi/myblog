@@ -16,7 +16,7 @@ The LogoutId always was NULL in identity Server 4 when the Angular OIDC client r
 var config = {
         authority: 'http://localhost:4242/',
         client_id: 'spa-client',
-        redirect_uri: `${Constants.clientRoot}assets/oidc-login-redirect.html`,
+        redirect_uri: `http://localhost:4200/oidc-login-redirect.html`,
         scope: 'openid projects-api profile',
         response_type: 'id_token token',
         //*------REMOVE THIS, OTHERWISE THE LOGOUTID ALWAYS NULL  -------*/

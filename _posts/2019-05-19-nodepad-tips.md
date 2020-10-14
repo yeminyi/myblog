@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Nodepad++ tips"
-categories: tools
+categories: editor 
+tags: [editor]
 ---
 
 New line `"\n"`(mostly) or `"\r"` or `"\r\n"`
