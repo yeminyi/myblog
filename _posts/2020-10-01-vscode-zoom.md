@@ -5,7 +5,7 @@ categories: editor
 tags: [vscode,editor]
 ---
 
-## FontSize Shortcuts
+## VS Code Zoom In / Out Shortcuts
 Introduction
 Change the font size with keyboard shortcuts.
 

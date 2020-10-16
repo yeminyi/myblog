@@ -82,43 +82,6 @@ It's sometimes handy for breaking things up.
 
 Markdown can also contain images. I'll need to add something here sometime.
 
-## Finally
-
-There's actually a lot more to Markdown than this. See the official [introduction][4] and [syntax][5] for more information. However, be aware that this is not using the official implementation, and this might work subtly differently in some of the little things.
-
-
-  [1]: http://daringfireball.net/projects/markdown/
-  [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm
-  [3]: http://www.markitdown.net/
-  [4]: http://daringfireball.net/projects/markdown/basics
-  [5]: http://daringfireball.net/projects/markdown/syntax
-
-
-
-Paragraphs are separated by a blank line.
-
-2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
-look like:
-
-  * this one
-  * that one
-  * the other one
-
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
-
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
-
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺
-
-
-
 An h2 header
 ------------
 
@@ -193,43 +156,12 @@ doc](#an-h2-header). Here's a footnote [^1].
 
 Tables can look like this:
 
-Name           Size  Material      Color
-------------- -----  ------------  ------------
-All Business      9  leather       brown
-Roundabout       10  hemp canvas   natural
-Cinderella       11  glass         transparent
+| Column 1       | Column 2     | Column 3     |
+| :------------- | :----------: | -----------: |
+|  Cell Contents | More Stuff   | And Again    |
+| You Can Also   | Put Pipes In | Like this \| |
 
-Table: Shoes sizes, materials, and colors.
 
-(The above is the caption for the table.) Pandoc also supports
-multi-line tables:
-
---------  -----------------------
-Keyword   Text
---------  -----------------------
-red       Sunsets, apples, and
-          other red or reddish
-          things.
-
-green     Leaves, grass, frogs
-          and other things it's
-          not easy being.
---------  -----------------------
-
-A horizontal rule follows.
-
-***
-
-Here's a definition list:
-
-apples
-  : Good for making applesauce.
-
-oranges
-  : Citrus!
-
-tomatoes
-  : There's no "e" in tomatoe.
 
 Again, text is indented 4 spaces. (Put a blank line between each
 term and  its definition to spread things out more.)
@@ -251,3 +183,143 @@ $$I = \int \rho R^{2} dV$$
 
 And note that you can backslash-escape any punctuation characters
 which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
+
+
+## Table example as below
+
+**For now, these extended features are provided:**
+
+* Cells spanning multiple columns
+* Cells spanning multiple rows
+* Cells text align separately
+* Table header not required
+* Grouped table header rows or data rows
+
+### Rowspan and Colspan
+^^ in a cell indicates it should be merged with the cell above.  
+This feature is contributed by [pmccloghrylaing](https://github.com/pmccloghrylaing).  
+
+| Stage | Direct Products | ATP Yields |
+| ----: | --------------: | ---------: |
+|Glycolysis | 2 ATP                   ||
+|^^         | 2 NADH      | 3--5 ATP   |
+|Pyruvaye oxidation | 2 NADH | 5 ATP   |
+|Citric acid cycle  | 2 ATP           ||
+|^^                 | 6 NADH | 15 ATP  |
+|^^                 | 2 FADH | 3 ATP   |
+| 30--32 ATP                         |||
+
+[ Net ATP yields per hexose]
+
+### Multiline
+A backslash at end to join cell contents with the following lines.  
+This feature is contributed by [Lucas-C](https://github.com/Lucas-C).
+
+|:     Easy Multiline     :|||
+|:------ |:------ |:-------- |
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange  |
+| Apple  | Banana |  Orange  |
+
+
+### Headerless
+Table header can be eliminated.
+
+|--|--|--|--|--|--|--|--|
+|♜ |  |♝ |♛ |♚ |♝ |♞ |♜ |
+|  |♟ |♟ |♟ |  |♟ |♟ |♟ |
+|♟ |  |♞ |  |  |  |  |  |
+|  |♗ |  |  |♟ |  |  |  |
+|  |  |  |  |♙ |  |  |  |
+|  |  |  |  |  |♘ |  |  |
+|♙ |♙ |♙ |♙ |  |♙ |♙ |♙ |
+|♖ |♘ |♗ |♕ |♔ |  |  |♖ |
+
+
+```markdown
+|:     Fruits \|\| Food           :|||
+|:-------- |:-------- |:------------ |
+| Apple    |: Apple  :|    Apple     \
+| Banana   |  Banana  |    Banana    \
+| Orange   |  Orange  |    Orange    |
+|:   Rowspan is 5   :||:  How's it? :|
+|^^   A. Peach       ||^^ 1. Fine    |
+|^^   B. Orange      ||^^ 2. Bad  $I = \int \rho R^{2} dV$     |
+|^^   C. Banana      ||   It's OK! ![example image][my-image]  |
+```
+
+### Text Alignment
+Table cell can be set alignment separately.
+
+| \:Fruits         ||  Food   :|
+|:-------- |:------ |:-------- |
+| Apple    | Banana |  Orange  |
+| Apple    | Banana |  Orange  |
+
+
+|          | Fruits\::        ||
+|:-------- |:------ |:-------- |
+| Apple    | Banana |  Orange  |
+| Apple    | Banana |  Orange  |
+
+
+|: \:Fruits       :||          |:       Food     :||
+|:-------- |:------ |:-------- |:-------- |:------ |
+| Apple    | Banana |  Orange  |:   Strawberry    :|
+| Apple  &  Banana || ^^       |    Peach        :||
+
+
+|: \:Fruits       :||          |:       Food     :||
+| Apple    | Banana |  Orange  |:   Strawberry    :|
+
+
+|:     Fruits \|\| Food           :|||
+|:-------- |:-------- |:------------ |
+| Apple    |: Apple  :|    Apple     \
+| Banana   |  Banana  |    Banana    \
+| Orange   |  Orange  |    Orange    |
+|:   Rowspan is 5   :||:  How's it? :|
+|^^   A. Peach       ||^^ 1. Fine    |
+|^^   B. Orange      ||^^ 2. Bad  $I = \int \rho R^{2} dV$     |
+|^^   C. Banana      ||   It's OK! ![example image][my-image]  |
+
+[my-image]: http://www.unexpected-vortices.com/sw/rippledoc/example-image.jpg "An exemplary image"
+
+
+## Finally
+
+There's actually a lot more to Markdown than this. See the official [introduction][4] and [syntax][5] for more information. However, be aware that this is not using the official implementation, and this might work subtly differently in some of the little things.
+
+
+  [1]: http://daringfireball.net/projects/markdown/
+  [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm
+  [3]: http://www.markitdown.net/
+  [4]: http://daringfireball.net/projects/markdown/basics
+  [5]: http://daringfireball.net/projects/markdown/syntax
+
+
+
+Paragraphs are separated by a blank line.
+
+2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
+look like:
+
+  * this one
+  * that one
+  * the other one
+
+Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.
+
+> Block quotes are
+> written like so.
+>
+> They can span multiple paragraphs,
+> if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺
