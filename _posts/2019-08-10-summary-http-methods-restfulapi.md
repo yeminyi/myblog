@@ -66,3 +66,6 @@ In HTTP specification, The methods GET, HEAD, PUT and DELETE are declared idempo
 |DELETE | NO | YES   |
 |PUT | NO | YES   |
 |PATCH | NO | NO   |
+
+## Useful Link
+<https://restfulapi.net/http-methods/>
