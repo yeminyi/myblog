@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Summary of HTTP Methods for RESTful APIs"
+title: Summary of HTTP Methods for RESTful APIs
 categories: RESTful 
 tags: [HTTP,RESTful]
 ---
