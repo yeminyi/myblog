@@ -2,7 +2,7 @@
 layout: post
 title: How to deply the Angular + .Net Core WebAPI using an Azure DevOps CI pipeline?
 categories: azure
-tags: [azure,pipelines,DevOps]
+tags: [azure,pipelines,DevOps,CICD]
 ---
 
 ## Instruction
