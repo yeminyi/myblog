@@ -1,8 +1,8 @@
 ---
 layout: post
 title: How to use Swashbuckle in ASP.NET Core
-categories: Swashbuckle
-tags: [Swashbuckle,DotnetCore]
+categories: swashbuckle
+tags: [swashbuckle,DotnetCore]
 ---
 
 ## Package installation
