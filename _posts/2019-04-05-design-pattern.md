@@ -2,7 +2,7 @@
 layout: post
 title:  Design Patterns in C# ASP.NET -- The SOLID Design Principles
 categories: DesignPatterns
-tags: [DesignPatterns,SOLID,OOP]
+tags: [DesignPatterns,SOLID,OOP,C#]
 ---
 
 ## Concepts
