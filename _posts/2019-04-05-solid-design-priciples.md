@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  Design Patterns in C# ASP.NET -- The SOLID Design Principles
-categories: DesignPatterns
+title:  The SOLID Design Principles in C# ASP.NET
+categories: SOLID
 tags: [DesignPatterns,SOLID,OOP,C#]
 ---
 
 ## Concepts
-In object-oriented computer programming, SOLID is a mnemonic acronym for five design principles intended to make software designs more understandable, flexible and maintainable.
+In object-oriented computer programming, SOLID is a mnemonic acronym for five design principles intended to make software designs more understandable, flexible and maintainable. `The Law of Demeter`is known as the Least Knowledge Principle (LKP), which is also an important design guideline for developing software applications.
 
 ![SOLID](https://miro.medium.com/max/606/1*yO6YGExWLJl5VOUL61xXvQ.jpeg)
-### Single responsibility principle
+### Single Responsibility Principle
 A class should only have a single responsibility, that is, only changes to one part of the software's specification should be able to affect the specification of the class.
 ``` C#
 using System;
@@ -89,7 +89,7 @@ namespace DotNetDesignPatternDemos.SOLID.SRP
 }
 
 ```
-### Open closed principle
+### Open Closed Principle
 software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification
 ``` C#
 using System;
@@ -258,7 +258,7 @@ namespace DotNetDesignPatternDemos.SOLID.OCP
 }
 
 ```
-### Liskov substitution principle
+### Liskov Substitution Principle
 Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
 ``` C#
 using static System.Console;
@@ -332,7 +332,7 @@ namespace DotNetDesignPatternDemos.SOLID.LiskovSubstitutionPrinciple
 }
 
 ```
-### Interface segregation principle
+### Interface Segregation Principle
 Many client-specific interfaces are better than one general-purpose interface.
 Clients should not be forced to depend upon interfaces that they do not use.
 ``` C#
@@ -457,7 +457,7 @@ namespace DotNetDesignPatternDemos.SOLID.InterfaceSegregationPrinciple
 }
 
 ```
-### Dependency inversion principle
+### Dependency Inversion Principle
 High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces).
 Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
 ```C#
@@ -547,9 +547,61 @@ namespace DotNetDesignPatternDemos.SOLID.DependencyInversionPrinciple
     }
   }
 }
+```
 
+### Law of Demeter
+The Law of Demeter(or the Principle of Least Knowledge) states that "you should only speak to objects that you know about directly". Do not do method chaining communication with other objects. An object should have as little knowledge as possible about other objects and not speak to strangers.
+```C#
+//Below code example is a violation of the Law of Demeter,
+//Method1() of class Test1 is calling the methods of classes Test3 and Test5 //by using classes Test2 and Test5 respectively. Class Test1 is not aware of //classes Test3 and Test5. Both classes are stranger for the class Test1
+public class Test1  
+{  
+    public Test4 test4 { get; set; }  
+    public Test2 test2 { get; set; }  
+  
+    public Test1()  
+    {  
+        test4 = new Test4();  
+        test2 = new Test2();  
+    }  
+  
+    public void Method1()  
+    {  
+        test2.test3.Test3Method();  
+        test4.test5.Test5Method();  
+    }  
+}  
+public class Test2  
+{  
+    public Test3 test3 { get; set; }  
+  
+    public Test2()  
+    {  
+        test3 = new Test3();  
+    }  
+}  
+  
+public class Test3  
+{  
+    public void Test3Method() { }  
+}  
+  
+public class Test4  
+{  
+    public Test5 test5 { get; set; }  
+    public Test4()  
+    {  
+        test5 = new Test5();  
+    }  
+}  
+  
+public class Test5  
+{  
+    public void Test5Method() { }  
+}  
 ```
 ## Refer the Link
 
-<https://en.wikipedia.org/wiki/SOLID>
+<https://en.wikipedia.org/wiki/SOLID><br>
+<https://www.c-sharpcorner.com/article/the-law-of-demeter/>
 
