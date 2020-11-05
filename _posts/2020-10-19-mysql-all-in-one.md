@@ -2,7 +2,7 @@
 layout: post
 title: MySQL all in one
 categories: sql 
-tags: [MySQL,sql]
+tags: [MySQL,sql,chinese]
 ---
 Export from Xmind in chinese, I will continue to update later.
 

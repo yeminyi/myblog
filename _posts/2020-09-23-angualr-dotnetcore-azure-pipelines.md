@@ -223,3 +223,6 @@ Pls refer [this](https://stackoverflow.com/questions/62201281/azure-devops-why-d
 Npm verson 1.* have cuscom command, 0.* can't use it.
 
 Please refer [this](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/package/npm?view=azure-devops)
+
+## Reference
+<https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/azure/devops/cicd.md>
