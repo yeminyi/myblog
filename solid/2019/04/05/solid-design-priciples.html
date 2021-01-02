@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>The SOLID Design Principles in C# ASP.NET | Amy’s blog</title>
+<meta name="generator" content="Jekyll v4.2.0">
+<meta property="og:title" content="The SOLID Design Principles in C# ASP.NET">
+<meta name="author" content="https://github.com/yeminyi">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Concepts In object-oriented computer programming, SOLID is a mnemonic acronym for five design principles intended to make software designs more understandable, flexible and maintainable. The Law of Demeteris known as the Least Knowledge Principle (LKP), which is also an important design guideline for developing software applications.">
+<meta property="og:description" content="Concepts In object-oriented computer programming, SOLID is a mnemonic acronym for five design principles intended to make software designs more understandable, flexible and maintainable. The Law of Demeteris known as the Least Knowledge Principle (LKP), which is also an important design guideline for developing software applications.">
+<link rel="canonical" href="https://yeminyi.github.io/myblog/solid/2019/04/05/solid-design-priciples.html">
+<meta property="og:url" content="https://yeminyi.github.io/myblog/solid/2019/04/05/solid-design-priciples.html">
+<meta property="og:site_name" content="Amy’s blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-04-05T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="The SOLID Design Principles in C# ASP.NET">
+<script type="application/ld+json">
+{"description":"Concepts In object-oriented computer programming, SOLID is a mnemonic acronym for five design principles intended to make software designs more understandable, flexible and maintainable. The Law of Demeteris known as the Least Knowledge Principle (LKP), which is also an important design guideline for developing software applications.","url":"https://yeminyi.github.io/myblog/solid/2019/04/05/solid-design-priciples.html","@type":"BlogPosting","headline":"The SOLID Design Principles in C# ASP.NET","dateModified":"2019-04-05T00:00:00+00:00","datePublished":"2019-04-05T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://yeminyi.github.io/myblog/solid/2019/04/05/solid-design-priciples.html"},"author":{"@type":"Person","name":"https://github.com/yeminyi"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/myblog/assets/css/main.css">
+  <script src="/myblog/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://yeminyi.github.io/myblog/feed.xml" title="Amy's blog">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/myblog/">
+  <img class="site-favicon" title="Amy's blog" src="" onerror="this.style.display='none'">
+  Amy's blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/myblog/">HOME</a><a class="page-link" href="/myblog/archives.html">ARCHIVES</a><a class="page-link" href="/myblog/categories.html">CATEGORIES</a><a class="page-link" href="/myblog/tags.html">TAGS</a><a class="page-link" href="/myblog/about.html">ABOUT</a>
+
+
+
+
+<span class="page-link">
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://www.countryflags.io/au/flat/64.png" title="">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: '',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">The SOLID Design Principles in C# ASP.NET</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="2019-04-05T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> 05 Apr 2019
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 10 mins</span>
+  </p>
+<div class="post-tags">
+<a class="post-tag" href="/myblog/tags.html#DesignPatterns">#DesignPatterns</a><a class="post-tag" href="/myblog/tags.html#SOLID">#SOLID</a><a class="post-tag" href="/myblog/tags.html#OOP">#OOP</a><a class="post-tag" href="/myblog/tags.html#C#">#C#</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <h2 id="concepts">Concepts</h2>
+<p>In object-oriented computer programming, SOLID is a mnemonic acronym for five design principles intended to make software designs more understandable, flexible and maintainable. <code class="language-plaintext highlighter-rouge">The Law of Demeter</code>is known as the Least Knowledge Principle (LKP), which is also an important design guideline for developing software applications.</p>
+
+<p><img src="https://miro.medium.com/max/606/1*yO6YGExWLJl5VOUL61xXvQ.jpeg" alt="SOLID"></p>
+<h3 id="single-responsibility-principle">Single Responsibility Principle</h3>
+<p>A class should only have a single responsibility, that is, only changes to one part of the software’s specification should be able to affect the specification of the class.</p>
+<pre><code class="language-C#">using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using static System.Console;
+
+namespace DotNetDesignPatternDemos.SOLID.SRP
+{
+  // just stores a couple of journal entries and ways of
+  // working with them
+  public class Journal
+  {
+    private readonly List&lt;string&gt; entries = new List&lt;string&gt;();
+
+    private static int count = 0;
+
+    public int AddEntry(string text)
+    {
+      entries.Add($"{++count}: {text}");
+      return count; // memento pattern!
+    }
+
+    public void RemoveEntry(int index)
+    {
+      entries.RemoveAt(index);
+    }
+
+    public override string ToString()
+    {
+      return string.Join(Environment.NewLine, entries);
+    }
+
+    // breaks single responsibility principle
+    public void Save(string filename, bool overwrite = false)
+    {
+      File.WriteAllText(filename, ToString());
+    }
+
+    public void Load(string filename)
+    {
+      
+    }
+
+    public void Load(Uri uri)
+    {
+      
+    }
+  }
+
+  // handles the responsibility of persisting objects
+  public class Persistence
+  {
+    public void SaveToFile(Journal journal, string filename, bool overwrite = false)
+    {
+      if (overwrite || !File.Exists(filename))
+        File.WriteAllText(filename, journal.ToString());
+    }
+  }
+
+  public class Demo
+  {
+    static void Main(string[] args)
+    {
+      var j = new Journal();
+      j.AddEntry("I cried today.");
+      j.AddEntry("I ate a bug.");
+      WriteLine(j);
+
+      var p = new Persistence();
+      var filename = @"c:\temp\journal.txt";
+      p.SaveToFile(j, filename);
+      Process.Start(filename);
+    }
+  }
+}
+
+</code></pre>
+<h3 id="open-closed-principle">Open Closed Principle</h3>
+<p>software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification</p>
+<pre><code class="language-C#">using System;
+using System.Collections.Generic;
+using static System.Console;
+
+namespace DotNetDesignPatternDemos.SOLID.OCP
+{
+  public enum Color
+  {
+    Red, Green, Blue
+  }
+
+  public enum Size
+  {
+    Small, Medium, Large, Yuge
+  }
+
+  public class Product
+  {
+    public string Name;
+    public Color Color;
+    public Size Size;
+
+    public Product(string name, Color color, Size size)
+    {
+      Name = name ?? throw new ArgumentNullException(paramName: nameof(name));
+      Color = color;
+      Size = size;
+    }
+  }
+
+  public class ProductFilter
+  {
+    // let's suppose we don't want ad-hoc queries on products
+    public IEnumerable&lt;Product&gt; FilterByColor(IEnumerable&lt;Product&gt; products, Color color)
+    {
+      foreach (var p in products)
+        if (p.Color == color)
+          yield return p;
+    }
+    
+    public static IEnumerable&lt;Product&gt; FilterBySize(IEnumerable&lt;Product&gt; products, Size size)
+    {
+      foreach (var p in products)
+        if (p.Size == size)
+          yield return p;
+    }
+
+    public static IEnumerable&lt;Product&gt; FilterBySizeAndColor(IEnumerable&lt;Product&gt; products, Size size, Color color)
+    {
+      foreach (var p in products)
+        if (p.Size == size &amp;&amp; p.Color == color)
+          yield return p;
+    } // state space explosion
+      // 3 criteria = 7 methods
+
+    // OCP = open for extension but closed for modification
+  }
+
+  // we introduce two new interfaces that are open for extension
+
+  public interface ISpecification&lt;T&gt;
+  {
+    bool IsSatisfied(Product p);
+  }
+
+  public interface IFilter&lt;T&gt;
+  {
+    IEnumerable&lt;T&gt; Filter(IEnumerable&lt;T&gt; items, ISpecification&lt;T&gt; spec);
+  }
+
+  public class ColorSpecification : ISpecification&lt;Product&gt;
+  {
+    private Color color;
+
+    public ColorSpecification(Color color)
+    {
+      this.color = color;
+    }
+
+    public bool IsSatisfied(Product p)
+    {
+      return p.Color == color;
+    }
+  }
+
+  public class SizeSpecification : ISpecification&lt;Product&gt;
+  {
+    private Size size;
+
+    public SizeSpecification(Size size)
+    {
+      this.size = size;
+    }
+
+    public bool IsSatisfied(Product p)
+    {
+      return p.Size == size;
+    }
+  }
+
+  // combinator
+  public class AndSpecification&lt;T&gt; : ISpecification&lt;T&gt;
+  {
+    private ISpecification&lt;T&gt; first, second;
+
+    public AndSpecification(ISpecification&lt;T&gt; first, ISpecification&lt;T&gt; second)
+    {
+      this.first = first ?? throw new ArgumentNullException(paramName: nameof(first));
+      this.second = second ?? throw new ArgumentNullException(paramName: nameof(second));
+    }
+
+    public bool IsSatisfied(Product p)
+    {
+      return first.IsSatisfied(p) &amp;&amp; second.IsSatisfied(p);
+    }
+  }
+
+  public class BetterFilter : IFilter&lt;Product&gt;
+  {
+    public IEnumerable&lt;Product&gt; Filter(IEnumerable&lt;Product&gt; items, ISpecification&lt;Product&gt; spec)
+    {
+      foreach (var i in items)
+        if (spec.IsSatisfied(i))
+          yield return i;
+    }
+  }
+
+  public class Demo
+  {
+    static void Main(string[] args)
+    {
+      var apple = new Product("Apple", Color.Green, Size.Small);
+      var tree = new Product("Tree", Color.Green, Size.Large);
+      var house = new Product("House", Color.Blue, Size.Large);
+
+      Product[] products = {apple, tree, house};
+
+      var pf = new ProductFilter();
+      WriteLine("Green products (old):");
+      foreach (var p in pf.FilterByColor(products, Color.Green))
+        WriteLine($" - {p.Name} is green");
+
+      // ^^ BEFORE
+
+      // vv AFTER
+      var bf = new BetterFilter();
+      WriteLine("Green products (new):");
+      foreach (var p in bf.Filter(products, new ColorSpecification(Color.Green)))
+        WriteLine($" - {p.Name} is green");
+
+      WriteLine("Large products");
+      foreach (var p in bf.Filter(products, new SizeSpecification(Size.Large)))
+        WriteLine($" - {p.Name} is large");
+
+      WriteLine("Large blue items");
+      foreach (var p in bf.Filter(products,
+        new AndSpecification&lt;Product&gt;(new ColorSpecification(Color.Blue), new SizeSpecification(Size.Large)))
+      )
+      {
+        WriteLine($" - {p.Name} is big and blue");
+      }
+    }
+  }
+}
+
+</code></pre>
+<h3 id="liskov-substitution-principle">Liskov Substitution Principle</h3>
+<p>Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.</p>
+<pre><code class="language-C#">using static System.Console;
+
+namespace DotNetDesignPatternDemos.SOLID.LiskovSubstitutionPrinciple
+{
+  // using a classic example
+  public class Rectangle
+  {
+    //public int Width { get; set; }
+    //public int Height { get; set; }
+
+    public virtual int Width { get; set; }
+    public virtual int Height { get; set; }
+
+    public Rectangle()
+    {
+      
+    }
+
+    public Rectangle(int width, int height)
+    {
+      Width = width;
+      Height = height;
+    }
+
+    public override string ToString()
+    {
+      return $"{nameof(Width)}: {Width}, {nameof(Height)}: {Height}";
+    }
+  }
+
+  public class Square : Rectangle
+  {
+    //public new int Width
+    //{
+    //  set { base.Width = base.Height = value; }
+    //}
+
+    //public new int Height
+    //{ 
+    //  set { base.Width = base.Height = value; }
+    //}
+
+    public override int Width // nasty side effects
+    {
+      set { base.Width = base.Height = value; }
+    }
+
+    public override int Height
+    { 
+      set { base.Width = base.Height = value; }
+    }
+  }
+
+  public class Demo
+  {
+    static public int Area(Rectangle r) =&gt; r.Width * r.Height;
+
+    static void Main(string[] args)
+    {
+      Rectangle rc = new Rectangle(2,3);
+      WriteLine($"{rc} has area {Area(rc)}");
+
+      // should be able to substitute a base type for a subtype
+      /*Square*/ Rectangle sq = new Square();
+      sq.Width = 4;
+      WriteLine($"{sq} has area {Area(sq)}");
+    }
+  }
+}
+
+</code></pre>
+<h3 id="interface-segregation-principle">Interface Segregation Principle</h3>
+<p>Many client-specific interfaces are better than one general-purpose interface.
+Clients should not be forced to depend upon interfaces that they do not use.</p>
+<pre><code class="language-C#">using System;
+
+namespace DotNetDesignPatternDemos.SOLID.InterfaceSegregationPrinciple
+{
+  public class Document
+  {
+  }
+
+  public interface IMachine
+  {
+    void Print(Document d);
+    void Fax(Document d);
+    void Scan(Document d);
+  }
+
+  // ok if you need a multifunction machine
+  public class MultiFunctionPrinter : IMachine
+  {
+    public void Print(Document d)
+    {
+      //
+    }
+
+    public void Fax(Document d)
+    {
+      //
+    }
+
+    public void Scan(Document d)
+    {
+      //
+    }
+  }
+
+  public class OldFashionedPrinter : IMachine
+  {
+    public void Print(Document d)
+    {
+      // yep
+    }
+
+    public void Fax(Document d)
+    {
+      throw new System.NotImplementedException();
+    }
+
+    public void Scan(Document d)
+    {
+      throw new System.NotImplementedException();
+    }
+  }
+
+  public interface IPrinter
+  {
+    void Print(Document d);
+  }
+
+  public interface IScanner
+  {
+    void Scan(Document d);
+  }
+
+  public class Printer : IPrinter
+  {
+    public void Print(Document d)
+    {
+      
+    }
+  }
+
+  public class Photocopier : IPrinter, IScanner
+  {
+    public void Print(Document d)
+    {
+      throw new System.NotImplementedException();
+    }
+
+    public void Scan(Document d)
+    {
+      throw new System.NotImplementedException();
+    }
+  }
+
+  public interface IMultiFunctionDevice : IPrinter, IScanner //
+  {
+    
+  }
+
+  public struct MultiFunctionMachine : IMultiFunctionDevice
+  {
+    // compose this out of several modules
+    private IPrinter printer;
+    private IScanner scanner;
+
+    public MultiFunctionMachine(IPrinter printer, IScanner scanner)
+    {
+      if (printer == null)
+      {
+        throw new ArgumentNullException(paramName: nameof(printer));
+      }
+      if (scanner == null)
+      {
+        throw new ArgumentNullException(paramName: nameof(scanner));
+      }
+      this.printer = printer;
+      this.scanner = scanner;
+    }
+
+    public void Print(Document d)
+    {
+      printer.Print(d);
+    }
+
+    public void Scan(Document d)
+    {
+      scanner.Scan(d);
+    }
+  }
+}
+
+</code></pre>
+<h3 id="dependency-inversion-principle">Dependency Inversion Principle</h3>
+<p>High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces).
+Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.</p>
+<pre><code class="language-C#">using System;
+using System.Collections.Generic;
+using System.Linq;
+using static System.Console;
+
+namespace DotNetDesignPatternDemos.SOLID.DependencyInversionPrinciple
+{
+  // hl modules should not depend on low-level; both should depend on abstractions
+  // abstractions should not depend on details; details should depend on abstractions
+
+  public enum Relationship
+  {
+    Parent,
+    Child,
+    Sibling
+  }
+
+  public class Person
+  {
+    public string Name;
+    // public DateTime DateOfBirth;
+  }
+
+  public interface IRelationshipBrowser
+  {
+    IEnumerable&lt;Person&gt; FindAllChildrenOf(string name);
+  }
+
+  public class Relationships : IRelationshipBrowser // low-level
+  {
+    private List&lt;(Person,Relationship,Person)&gt; relations
+      = new List&lt;(Person, Relationship, Person)&gt;();
+
+    public void AddParentAndChild(Person parent, Person child)
+    {
+      relations.Add((parent, Relationship.Parent, child));
+      relations.Add((child, Relationship.Child, parent));
+    }
+
+    public List&lt;(Person, Relationship, Person)&gt; Relations =&gt; relations;
+
+    public IEnumerable&lt;Person&gt; FindAllChildrenOf(string name)
+    {
+      return relations
+        .Where(x =&gt; x.Item1.Name == name
+                    &amp;&amp; x.Item2 == Relationship.Parent).Select(r =&gt; r.Item3);
+    }
+  }
+
+  public class Research
+  {
+    public Research(Relationships relationships) 
+    {
+      // high-level: find all of john's children
+      //var relations = relationships.Relations;
+      //foreach (var r in relations
+      //  .Where(x =&gt; x.Item1.Name == "John"
+      //              &amp;&amp; x.Item2 == Relationship.Parent))
+      //{
+      //  WriteLine($"John has a child called {r.Item3.Name}");
+      //}
+    }
+
+    public Research(IRelationshipBrowser browser) {
+      foreach (var p in browser.FindAllChildrenOf("John"))
+      {
+        WriteLine($"John has a child called {p.Name}");
+      }
+    }
+
+    static void Main(string[] args)
+    {
+      var parent = new Person {Name = "John"};
+      var child1 = new Person {Name = "Chris"};
+      var child2 = new Person {Name = "Matt"};
+
+      // low-level module
+      var relationships = new Relationships();
+      relationships.AddParentAndChild(parent, child1);
+      relationships.AddParentAndChild(parent, child2);
+
+      new Research(relationships);
+      
+    }
+  }
+}
+</code></pre>
+
+<h3 id="law-of-demeter">Law of Demeter</h3>
+<p>The Law of Demeter(or the Principle of Least Knowledge) states that “you should only speak to objects that you know about directly”. Do not do method chaining communication with other objects. An object should have as little knowledge as possible about other objects and not speak to strangers.</p>
+<pre><code class="language-C#">//Below code example is a violation of the Law of Demeter,
+//Method1() of class Test1 is calling the methods of classes Test3 and Test5 //by using classes Test2 and Test5 respectively. Class Test1 is not aware of //classes Test3 and Test5. Both classes are stranger for the class Test1
+public class Test1  
+{  
+    public Test4 test4 { get; set; }  
+    public Test2 test2 { get; set; }  
+  
+    public Test1()  
+    {  
+        test4 = new Test4();  
+        test2 = new Test2();  
+    }  
+  
+    public void Method1()  
+    {  
+        test2.test3.Test3Method();  
+        test4.test5.Test5Method();  
+    }  
+}  
+public class Test2  
+{  
+    public Test3 test3 { get; set; }  
+  
+    public Test2()  
+    {  
+        test3 = new Test3();  
+    }  
+}  
+  
+public class Test3  
+{  
+    public void Test3Method() { }  
+}  
+  
+public class Test4  
+{  
+    public Test5 test5 { get; set; }  
+    public Test4()  
+    {  
+        test5 = new Test5();  
+    }  
+}  
+  
+public class Test5  
+{  
+    public void Test5Method() { }  
+}  
+</code></pre>
+<h2 id="refer-the-link">Refer the Link</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/SOLID">https://en.wikipedia.org/wiki/SOLID</a><br>
+<a href="https://www.c-sharpcorner.com/article/the-law-of-demeter/">https://www.c-sharpcorner.com/article/the-law-of-demeter/</a></p>
+
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/myblog/markdown/2018/12/05/an-exhibit-of-markdown.html" title="An exhibit of Markdown">An exhibit of Markdown</a><a class="next" href="/myblog/c%23/2019/04/19/boxing-and-unboxing-in-csharp.html" title="Boxing and Unboxing in C#">Boxing and Unboxing in C#</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/myblog/git/2020/09/19/git-cheat-sheet.html" title="Boxing and Unboxing in C#">Git Cheat Sheet</a></li>
+<li><a class="post-link" href="/myblog/elk/2020/10/22/what-is-elk.html" title="Boxing and Unboxing in C#">ELK Stack Architecture</a></li>
+<li><a class="post-link" href="/myblog/html/2020/10/15/html-interview-collections.html" title="Boxing and Unboxing in C#">HTML Collections Interview Questions</a></li>
+<li><a class="post-link" href="/myblog/azure/2020/09/23/angualr-dotnetcore-azure-pipelines.html" title="Boxing and Unboxing in C#">How to deply the Angular + .Net Core WebAPI using an Azure...</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">In this article</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items=20) {
+      var items = menuContent.firstChild.children;
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/myblog/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 1970-2020 @https://github.com/yeminyi</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/myblog/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

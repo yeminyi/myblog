@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>TypeScript Notes-Basic Types | Amy’s blog</title>
+<meta name="generator" content="Jekyll v4.2.0">
+<meta property="og:title" content="TypeScript Notes-Basic Types">
+<meta name="author" content="https://github.com/yeminyi">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="TypeScript is a strict syntactical superset of JavaScript and adds optional static typing to the language. It is designed for development of large applications and transcompiles to JavaScript. Basic Types Boolean let isDone: boolean = false; Number let n: number = 6; let hex: number = 0xf00d; let binary: number = 0b1010; let octal: number = 0o744; let big: bigint = 100n; String Just like JavaScript, TypeScript also uses double quotes (“) or single quotes (‘) to surround string data. ``` typescript let color: string = “blue”; color = “red”;">
+<meta property="og:description" content="TypeScript is a strict syntactical superset of JavaScript and adds optional static typing to the language. It is designed for development of large applications and transcompiles to JavaScript. Basic Types Boolean let isDone: boolean = false; Number let n: number = 6; let hex: number = 0xf00d; let binary: number = 0b1010; let octal: number = 0o744; let big: bigint = 100n; String Just like JavaScript, TypeScript also uses double quotes (“) or single quotes (‘) to surround string data. ``` typescript let color: string = “blue”; color = “red”;">
+<link rel="canonical" href="https://yeminyi.github.io/myblog/typescript/2020/04/05/typescript-notes-copy.html">
+<meta property="og:url" content="https://yeminyi.github.io/myblog/typescript/2020/04/05/typescript-notes-copy.html">
+<meta property="og:site_name" content="Amy’s blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-04-05T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="TypeScript Notes-Basic Types">
+<script type="application/ld+json">
+{"description":"TypeScript is a strict syntactical superset of JavaScript and adds optional static typing to the language. It is designed for development of large applications and transcompiles to JavaScript. Basic Types Boolean let isDone: boolean = false; Number let n: number = 6; let hex: number = 0xf00d; let binary: number = 0b1010; let octal: number = 0o744; let big: bigint = 100n; String Just like JavaScript, TypeScript also uses double quotes (“) or single quotes (‘) to surround string data. ``` typescript let color: string = “blue”; color = “red”;","url":"https://yeminyi.github.io/myblog/typescript/2020/04/05/typescript-notes-copy.html","@type":"BlogPosting","headline":"TypeScript Notes-Basic Types","dateModified":"2020-04-05T00:00:00+00:00","datePublished":"2020-04-05T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://yeminyi.github.io/myblog/typescript/2020/04/05/typescript-notes-copy.html"},"author":{"@type":"Person","name":"https://github.com/yeminyi"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/myblog/assets/css/main.css">
+  <script src="/myblog/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://yeminyi.github.io/myblog/feed.xml" title="Amy's blog">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/myblog/">
+  <img class="site-favicon" title="Amy's blog" src="" onerror="this.style.display='none'">
+  Amy's blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/myblog/">HOME</a><a class="page-link" href="/myblog/archives.html">ARCHIVES</a><a class="page-link" href="/myblog/categories.html">CATEGORIES</a><a class="page-link" href="/myblog/tags.html">TAGS</a><a class="page-link" href="/myblog/about.html">ABOUT</a>
+
+
+
+
+<span class="page-link">
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://www.countryflags.io/au/flat/64.png" title="">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: '',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">TypeScript Notes-Basic Types</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="2020-04-05T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> 05 Apr 2020
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 6 mins</span>
+  </p>
+<div class="post-tags">
+<a class="post-tag" href="/myblog/tags.html#typescript">#typescript</a><a class="post-tag" href="/myblog/tags.html#angular">#angular</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <p>TypeScript is a strict syntactical superset of JavaScript and adds optional static typing to the language. It is designed for development of large applications and transcompiles to JavaScript.</p>
+<h2 id="basic-types">Basic Types</h2>
+<h3 id="boolean">Boolean</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">isDone</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="number">Number</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">n</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">hex</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mh">0xf00d</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">binary</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mb">0b1010</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">octal</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mo">0o744</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">big</span><span class="p">:</span> <span class="nx">bigint</span> <span class="o">=</span> <span class="mi">100</span><span class="nx">n</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="string">String</h3>
+<p>Just like JavaScript, TypeScript also uses double quotes (“) or single quotes (‘) to surround string data.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">color</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// you can also use template strings, </span>
+<span class="c1">// which can span multiple lines and have embedded expressions</span>
+<span class="kd">let</span> <span class="nx">fullName</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="s2">`Bob Bobbington`</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sentence</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="s2">`Hello, my name is </span><span class="p">${</span><span class="nx">fullName</span><span class="p">}</span><span class="s2">.
+
+I'll be </span><span class="p">${</span><span class="nx">age</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="s2"> years old next month.`</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="array">Array</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">list</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="c1">//The second way uses a generic array type, Array&lt;elemType&gt;:</span>
+<span class="kd">let</span> <span class="nx">list</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</code></pre></div></div>
+<h3 id="tuple">Tuple</h3>
+<p>Tuple values are individually called items. Tuples are index based. This means that items in a tuple can be accessed using their corresponding numeric index. Tuple item’s index starts from zero and extends up to n-1(where n is the tuple’s size)</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Declare a tuple type</span>
+<span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="p">];</span>
+<span class="c1">// Initialize it</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span> <span class="c1">// OK</span>
+<span class="c1">// Initialize it incorrectly</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">];</span> <span class="c1">// Error</span>
+
+<span class="c1">// OK</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="c1">//error Property 'substring' does not exist on type 'number'.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+</code></pre></div></div>
+<h3 id="enum">Enum</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span>
+  <span class="nx">Red</span><span class="p">,</span>
+  <span class="nx">Green</span><span class="p">,</span>
+  <span class="nx">Blue</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">c</span><span class="p">:</span> <span class="nx">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="unknown">Unknown</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">notSure</span><span class="p">:</span> <span class="nx">unknown</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="nx">notSure</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">maybe a string instead</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// OK, definitely a boolean</span>
+<span class="nx">notSure</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="any">Any</h3>
+<p>The any data type is the super type of all types in TypeScript. It denotes a dynamic type. Using the any type is equivalent to opting out of type checking for a variable.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">declare</span> <span class="kd">function</span> <span class="nx">getValue</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">any</span><span class="p">;</span>
+<span class="c1">// OK, return value of 'getValue' is not checked</span>
+<span class="kd">const</span> <span class="nx">str</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="nx">getValue</span><span class="p">(</span><span class="dl">"</span><span class="s2">myString</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+<p>After all, remember that all the convenience of any comes at the cost of losing type safety. Type safety is one of the main motivations for using TypeScript and you should try to avoid using any when not necessary.</p>
+<h3 id="void">Void</h3>
+<p>void is a little like the opposite of any: the absence of having any type at all. You may commonly see this as the return type of functions that do not return a value:</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">warnUser</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is my warning message</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="null-and-undefined">Null and Undefined</h3>
+<p>By default null and undefined are subtypes of all other types. That means you can assign null and undefined to something like number.
+However, when using the –strictNullChecks flag, null and undefined are only assignable to unknown, any and their respective types (the one exception being that undefined is also assignable to void). This helps avoid many common errors. In cases where you want to pass in either a string or null or undefined, you can use the union type string | null | undefined.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Not much else we can assign to these variables!</span>
+<span class="kd">let</span> <span class="nx">u</span><span class="p">:</span> <span class="kc">undefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">n</span><span class="p">:</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="never">Never</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Function returning never must not have a reachable end point</span>
+<span class="kd">function</span> <span class="nx">error</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">never</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="object">Object</h3>
+<p>object is a type that represents the non-primitive type, i.e. anything that is not number, string, boolean, bigint, symbol, null, or undefined.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">declare</span> <span class="kd">function</span> <span class="nx">create</span><span class="p">(</span><span class="nx">o</span><span class="p">:</span> <span class="nx">object</span> <span class="o">|</span> <span class="kc">null</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="c1">// OK</span>
+<span class="nx">create</span><span class="p">({</span> <span class="na">prop</span><span class="p">:</span> <span class="mi">0</span> <span class="p">});</span>
+<span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+<span class="nx">create</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="nx">Argument</span> <span class="k">of</span> <span class="kd">type</span> <span class="dl">'</span><span class="s1">42</span><span class="dl">'</span> <span class="k">is</span> <span class="nx">not</span> <span class="nx">assignable</span> <span class="nx">to</span> <span class="nx">parameter</span> <span class="k">of</span> <span class="kd">type</span> <span class="dl">'</span><span class="s1">object | null</span><span class="dl">'</span><span class="p">.</span>
+<span class="nx">create</span><span class="p">(</span><span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+<h2 id="refer-the-link">Refer the Link</h2>
+
+<p><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">https://www.typescriptlang.org/docs/handbook/basic-types.html</a></p>
+
+<p><a href="https://www.tutorialspoint.com/typescript/index.htm">https://www.tutorialspoint.com/typescript/index.htm</a></p>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/myblog/sql/2020/04/01/sql-notes.html" title="Sql Notes">Sql Notes</a><a class="next" href="/myblog/swashbuckle/2020/05/01/how-to-use-swashbuckle-in-aspdotnet-core.html" title="How to use Swashbuckle in ASP.NET Core">How to use Swashbuckle in ASP.NET...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/myblog/markdown/2018/12/05/an-exhibit-of-markdown.html" title="How to use Swashbuckle in ASP.NET Core">An exhibit of Markdown</a></li>
+<li><a class="post-link" href="/myblog/identityserver4/2020/10/02/identityserver-chrome-cookie.html" title="How to use Swashbuckle in ASP.NET Core">Prepare Your identityserver For Chrome's SameSite Cookie</a></li>
+<li><a class="post-link" href="/myblog/azure/2020/09/15/azure-deployment.html" title="How to use Swashbuckle in ASP.NET Core">Deployment for Angular + Asp.net core with Sqlite</a></li>
+<li><a class="post-link" href="/myblog/angular/2019/10/19/angular-cli-useful-things.html" title="How to use Swashbuckle in ASP.NET Core">Angular CLI useful commands</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">In this article</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items=20) {
+      var items = menuContent.firstChild.children;
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/myblog/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 1970-2020 @https://github.com/yeminyi</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/myblog/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

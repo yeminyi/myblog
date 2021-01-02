@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Prepare Your identityserver For Chrome’s SameSite Cookie | Amy’s blog</title>
+<meta name="generator" content="Jekyll v4.2.0">
+<meta property="og:title" content="Prepare Your identityserver For Chrome’s SameSite Cookie">
+<meta name="author" content="https://github.com/yeminyi">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="The class to add to your project">
+<meta property="og:description" content="The class to add to your project">
+<link rel="canonical" href="https://yeminyi.github.io/myblog/identityserver4/2020/10/02/identityserver-chrome-cookie.html">
+<meta property="og:url" content="https://yeminyi.github.io/myblog/identityserver4/2020/10/02/identityserver-chrome-cookie.html">
+<meta property="og:site_name" content="Amy’s blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-10-02T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Prepare Your identityserver For Chrome’s SameSite Cookie">
+<script type="application/ld+json">
+{"description":"The class to add to your project","url":"https://yeminyi.github.io/myblog/identityserver4/2020/10/02/identityserver-chrome-cookie.html","@type":"BlogPosting","headline":"Prepare Your identityserver For Chrome’s SameSite Cookie","dateModified":"2020-10-02T00:00:00+00:00","datePublished":"2020-10-02T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://yeminyi.github.io/myblog/identityserver4/2020/10/02/identityserver-chrome-cookie.html"},"author":{"@type":"Person","name":"https://github.com/yeminyi"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/myblog/assets/css/main.css">
+  <script src="/myblog/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://yeminyi.github.io/myblog/feed.xml" title="Amy's blog">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/myblog/">
+  <img class="site-favicon" title="Amy's blog" src="" onerror="this.style.display='none'">
+  Amy's blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/myblog/">HOME</a><a class="page-link" href="/myblog/archives.html">ARCHIVES</a><a class="page-link" href="/myblog/categories.html">CATEGORIES</a><a class="page-link" href="/myblog/tags.html">TAGS</a><a class="page-link" href="/myblog/about.html">ABOUT</a>
+
+
+
+
+<span class="page-link">
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://www.countryflags.io/au/flat/64.png" title="">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: '',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Prepare Your identityserver For Chrome's SameSite Cookie</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="2020-10-02T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> 02 Oct 2020
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
+  </p>
+<div class="post-tags">
+<a class="post-tag" href="/myblog/tags.html#identityserver4">#identityserver4</a><a class="post-tag" href="/myblog/tags.html#cookie">#cookie</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <h2 id="the-class-to-add-to-your-project">The class to add to your project</h2>
+
+<pre><code class="language-C#">using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using System;
+
+namespace Microsoft.Extensions.DependencyInjection
+{
+
+    public static class SameSiteCookiesServiceCollectionExtensions
+    {
+        /// &lt;summary&gt;
+        /// -1 defines the unspecified value, which tells ASPNET Core to NOT
+        /// send the SameSite attribute. With ASPNET Core 3.1 the
+        /// &lt;seealso cref="SameSiteMode" /&gt; enum will have a definition for
+        /// Unspecified.
+        /// &lt;/summary&gt;
+        private const SameSiteMode Unspecified = (SameSiteMode)(-1);
+
+        /// &lt;summary&gt;
+        /// Configures a cookie policy to properly set the SameSite attribute
+        /// for Browsers that handle unknown values as Strict. Ensure that you
+        /// add the &lt;seealso cref="Microsoft.AspNetCore.CookiePolicy.CookiePolicyMiddleware" /&gt;
+        /// into the pipeline before sending any cookies!
+        /// &lt;/summary&gt;
+        /// &lt;remarks&gt;
+        /// Minimum ASPNET Core Version required for this code:
+        ///   - 2.1.14
+        ///   - 2.2.8
+        ///   - 3.0.1
+        ///   - 3.1.0-preview1
+        /// Starting with version 80 of Chrome (to be released in February 2020)
+        /// cookies with NO SameSite attribute are treated as SameSite=Lax.
+        /// In order to always get the cookies send they need to be set to
+        /// SameSite=None. But since the current standard only defines Lax and
+        /// Strict as valid values there are some browsers that treat invalid
+        /// values as SameSite=Strict. We therefore need to check the browser
+        /// and either send SameSite=None or prevent the sending of SameSite=None.
+        /// Relevant links:
+        /// - https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1
+        /// - https://tools.ietf.org/html/draft-west-cookie-incrementalism-00
+        /// - https://www.chromium.org/updates/same-site
+        /// - https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/
+        /// - https://bugs.webkit.org/show_bug.cgi?id=198181
+        /// &lt;/remarks&gt;
+        /// &lt;param name="services"&gt;The service collection to register &lt;see cref="CookiePolicyOptions" /&gt; into.&lt;/param&gt;
+        /// &lt;returns&gt;The modified &lt;see cref="IServiceCollection" /&gt;.&lt;/returns&gt;
+        public static IServiceCollection ConfigureNonBreakingSameSiteCookies(this IServiceCollection services)
+        {
+            services.Configure&lt;CookiePolicyOptions&gt;(options =&gt;
+            {
+                options.MinimumSameSitePolicy = Unspecified;
+                options.OnAppendCookie = cookieContext =&gt;
+                   CheckSameSite(cookieContext.Context, cookieContext.CookieOptions);
+                options.OnDeleteCookie = cookieContext =&gt;
+                   CheckSameSite(cookieContext.Context, cookieContext.CookieOptions);
+            });
+
+            return services;
+        }
+
+        private static void CheckSameSite(HttpContext httpContext, CookieOptions options)
+        {
+            if (options.SameSite == SameSiteMode.None)
+            {
+                var userAgent = httpContext.Request.Headers["User-Agent"].ToString();
+
+                if (DisallowsSameSiteNone(userAgent))
+                {
+                    options.SameSite = Unspecified;
+                }
+            }
+        }
+        private static int GetChromeVersion(string userAgent)
+        {
+            try
+            {
+                var subStr = Convert.ToInt32(userAgent.Split("Chrome/")[1].Split('.')[0]);
+                return subStr;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        /// &lt;summary&gt;
+        /// Checks if the UserAgent is known to interpret an unknown value as Strict.
+        /// For those the &lt;see cref="CookieOptions.SameSite" /&gt; property should be
+        /// set to &lt;see cref="Unspecified" /&gt;.
+        /// &lt;/summary&gt;
+        /// &lt;remarks&gt;
+        /// This code is taken from Microsoft:
+        /// https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/
+        /// &lt;/remarks&gt;
+        /// &lt;param name="userAgent"&gt;The user agent string to check.&lt;/param&gt;
+        /// &lt;returns&gt;Whether the specified user agent (browser) accepts SameSite=None or not.&lt;/returns&gt;
+        private static bool DisallowsSameSiteNone(string userAgent)
+        {
+            // Cover all iOS based browsers here. This includes:
+            //   - Safari on iOS 12 for iPhone, iPod Touch, iPad
+            //   - WkWebview on iOS 12 for iPhone, iPod Touch, iPad
+            //   - Chrome on iOS 12 for iPhone, iPod Touch, iPad
+            // All of which are broken by SameSite=None, because they use the
+            // iOS networking stack.
+            // Notes from Thinktecture:
+            // Regarding https://caniuse.com/#search=samesite iOS versions lower
+            // than 12 are not supporting SameSite at all. Starting with version 13
+            // unknown values are NOT treated as strict anymore. Therefore we only
+            // need to check version 12.
+            if (userAgent.Contains("CPU iPhone OS 12")
+               || userAgent.Contains("iPad; CPU OS 12"))
+            {
+                return true;
+            }
+
+            // Cover Mac OS X based browsers that use the Mac OS networking stack.
+            // This includes:
+            //   - Safari on Mac OS X.
+            // This does not include:
+            //   - Chrome on Mac OS X
+            // because they do not use the Mac OS networking stack.
+            // Notes from Thinktecture: 
+            // Regarding https://caniuse.com/#search=samesite MacOS X versions lower
+            // than 10.14 are not supporting SameSite at all. Starting with version
+            // 10.15 unknown values are NOT treated as strict anymore. Therefore we
+            // only need to check version 10.14.
+            if (userAgent.Contains("Safari")
+               &amp;&amp; userAgent.Contains("Macintosh; Intel Mac OS X 10_14")
+               &amp;&amp; userAgent.Contains("Version/"))
+            {
+                return true;
+            }
+
+            // Cover Chrome 50-69, because some versions are broken by SameSite=None
+            // and none in this range require it.
+            // Note: this covers some pre-Chromium Edge versions,
+            // but pre-Chromium Edge does not require SameSite=None.
+            // Notes from Thinktecture:
+            // We can not validate this assumption, but we trust Microsofts
+            // evaluation. And overall not sending a SameSite value equals to the same
+            // behavior as SameSite=None for these old versions anyways.
+            if (userAgent.Contains("Chrome/5") || userAgent.Contains("Chrome/6"))
+            {
+                return true;
+            }
+            var chromeVersion = GetChromeVersion(userAgent);
+
+            if (chromeVersion &gt;= 80)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+}
+</code></pre>
+
+<h2 id="configure-and-enable-the-cookie-policy">Configure and enable the cookie policy</h2>
+
+<p>To use this cookie policy, you need to add the following to your startup code:</p>
+<pre><code class="language-C#">  public void ConfigureServices(IServiceCollection services)
+  {
+    // Add this
+    services.ConfigureNonBreakingSameSiteCookies();
+  }
+  
+  public void Configure(IApplicationBuilder app)
+  {
+    // Add this before any other middleware that might write cookies
+    app.UseCookiePolicy();
+
+    // This will write cookies, so make sure it's after the cookie policy
+    app.UseAuthentication();
+  }
+
+</code></pre>
+
+<p>Please refer the link <a href="https://www.thinktecture.com/en/identity/samesite/prepare-your-identityserver/">here</a></p>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/myblog/editor/2020/10/01/vscode-zoom.html" title="VS Code Zoom In / Out">VS Code Zoom In / Out...</a><a class="next" href="/myblog/identityserver4/2020/10/03/identityserver-postlogoutredirectUri.html" title="PostLogoutRedirectUri always null in identity Server 4 with Angular OIDC client">PostLogoutRedirectUri always null in identity Server...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/myblog/angular/2020/09/10/angular-deployment-github.html" title="PostLogoutRedirectUri always null in identity Server 4 with Angular OIDC client">Angular Apps Deployment to GitHub Pages</a></li>
+<li><a class="post-link" href="/myblog/angular/2020/09/22/quickly-remove-ng-modules.html" title="PostLogoutRedirectUri always null in identity Server 4 with Angular OIDC client">How to remove the node_modules folder quickly</a></li>
+<li><a class="post-link" href="/myblog/azure/2020/08/12/create-deploy-express-web-app-on-azure-in-few-steps.html" title="PostLogoutRedirectUri always null in identity Server 4 with Angular OIDC client">How to create and deploy express web app on azure in few...</a></li>
+<li><a class="post-link" href="/myblog/css/2020/11/21/mixin.html" title="PostLogoutRedirectUri always null in identity Server 4 with Angular OIDC client">How to use mixin in Sass</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">In this article</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items=20) {
+      var items = menuContent.firstChild.children;
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/myblog/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 1970-2020 @https://github.com/yeminyi</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/myblog/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
