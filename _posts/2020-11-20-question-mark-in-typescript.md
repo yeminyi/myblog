@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Why use Question mark and Exclamation mark in TypeScript 
-categories: typeScript 
-tags: [typeScript]
+categories: typescript 
+tags: [typescript]
 ---
 ## Question mark ？
 Using TypeScript, 3 places where the question mark operator appears.
